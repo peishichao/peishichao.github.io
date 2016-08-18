@@ -1,0 +1,7 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/
+
+Sitemap: http://www.steven7.top/sitemap.xml
+Sitemap: http://www.steven7.top/baidusitemap.xml

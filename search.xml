@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[Hexo的奇淫技巧第三发：添加背景以及网站图标设置]]></title>
+      <url>http://www.steven7.top/2016/08/16/hexoskillthree/</url>
+      <content type="html"><![CDATA[<p><img src="https://source.unsplash.com/random/1600x900"></p>
+<a id="more"></a>
+<p>闲来无事总想捣鼓捣鼓自己的这个小博客..的确是闲的蛋疼啊 ︿(￣︶￣)︿</p>
+<p>先赠送给大家一个小技巧吧！</p>
+<hr>
+<p>我总是感觉显示文章摘要的时候，如果显示的全是文字总是感觉很<code>low</code>，所以，就像这篇文章一样你们进来的时候看到的效果一样，是不是瞬间感觉B格满满的呢:-D</p>
+<p>对于<code>NexT</code>主题来讲，大家可以设置默认文章截取长度作为文章摘要参考：<a href="http://theme-next.iissnan.com/faqs.html" target="_blank" rel="external">NexT官方文档</a></p>
+<p>但是还是建议大家使用<code>&lt;!-- more --&gt;</code>标签自己选择性截取比较有代表性。</p>
+<p>文章摘要大图形式显示我就是使用的<code>&lt;!-- more --&gt;</code>标签，大家一定还会说，每次写文章去找一张图，我的尴尬症都要犯了==那懒人的福利又来了</p>
+<p><code>&lt;img src=&quot;https://source.unsplash.com/random/1600x900&quot;&gt;</code></p>
+<p>大家只需要将这个代码贴到<code>&lt;!-- more --&gt;</code>标签的前面就可以了，是不是很简单啊！</p>
+<p><code>unsplash</code>可以随意生成绝美大图作为文章封面，瞬间B格满满滴–</p>
+<p>滴滴滴，学长卡快上车–<code>unsplash</code><a href="https://source.unsplash.com/" target="_blank" rel="external">官网</a></p>
+<hr>
+<h4 id="添加网站背景"><a href="#添加网站背景" class="headerlink" title="添加网站背景"></a>添加网站背景</h4><p><code>Hexo NexT</code>的确留白很多，但是总是感觉空空荡荡的，话说一开始我的确是因为喜欢他这种简洁美才选择它的不是嘛！!<code>wtf</code>我真是一个花心的男纸==</p>
+<p>我现在的确也还是很喜欢它这种简洁美，但是我还是想给它加上点色彩，所以就添加点背景试试咯。</p>
+<ol>
+<li><p>首先先找到自己喜欢的一张背景图片是关键、、我可是找了好久才找到一张自己喜欢的。如果各位看官喜欢我的背景的话，小弟就把它送给你们把！！拿去收好不送:-D(<a href="http://i4.buimg.com/567571/85118244e0cdca9b.png" target="_blank" rel="external">黑白齿轮</a>)</p>
+</li>
+<li><p>将自己的网站背景图片置于<code>Hexo/themes/next/source/images</code>下</p>
+</li>
+<li><p>修改以下文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Hexo/themes/next/source/css/_schemes/Pisces/index.styl</div><div class="line">1 line: modify background label</div><div class="line">body &#123; background:url(/images/background.png);&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>完成任务:-D</strong></p>
+<p>效果图就跟我的博客长得一样咯 ！</p>
+<h4 id="设置网站图标"><a href="#设置网站图标" class="headerlink" title="设置网站图标"></a>设置网站图标</h4><p>设置网站图标也是首先找到自己喜欢的网站图标，这个问题大家一定又是炒鸡纠结的啊哈哈–莫怨我仰天长笑 –因为我就是这么纠结的银/(ㄒoㄒ)/~~</p>
+<ul>
+<li>大家可以选择自己制作，推荐有<code>PS</code>功底的银尝试</li>
+<li>选择制作好的，想我们这种懒蛋只有这个路数了。接住我的<a href="http://www.easyicon.net/" target="_blank" rel="external">天马流星拳</a>。大家可以在里面尽情的选择，在自由的大海里面徜徉辣-</li>
+</ul>
+<p>选择完成之后，大家只需要将这个<code>ico</code>文件放在<code>Hexo/source</code>文件夹下面即可</p>
+<p>大家一定会问就这么简单！！！</p>
+<p><del>柯南新一说：真相永远只有一个！！</del></p>
+<blockquote>
+<p>因为在<code>Hexo/themes/next/_config.yml</code>中，<code>NexT</code>主题已经提前为我们设置了网站图标<code>line 6</code>；</p>
+</blockquote>
+<p>对于其他主题的用户而言：<code>Hexo</code><a href="https://hexo.io/zh-cn/docs/helpers.html#favicon_tag" target="_blank" rel="external">官方文档</a>中有相应的指导：</p>
+<blockquote>
+<p>将<code>&lt;%- favicon_tag(path) %&gt;</code> 代码置于对应主题配置文件中即可。</p>
+</blockquote>
+<p>请其他主题用户自行尝试，本博主也木有试过哦==</p>
+<p>问题相关解答：</p>
+<table>
+<thead>
+<tr>
+<th>问题描述</th>
+<th>解答</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设置完网站图标之后不显示</td>
+<td>请更换浏览器尝试</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/16/hexoskillthree/">http://www.steven7.top/2016/08/16/hexoskillthree/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[本博客的SEO优化（2）-让谷歌和百度尽快收录你]]></title>
+      <url>http://www.steven7.top/2016/08/15/Hexo-Seo-2/</url>
+      <content type="html"><![CDATA[<p>前言</p>
+<p>亲妈啊！！这真的是我这几天写博文遇到的最最最头痛的问题-让度娘和谷哥尽快的收了我啊/(ㄒoㄒ)/~~</p>
+<p>窝也知道刚开始建的站不可能这么快收录的，然而我这不是心急如焚嘛！！<img src="http://i2.buimg.com/567571/b2c39f2227ba4a78.png" alt=""></p>
+<p> <strong><u>接下来就来交大家脱坑吧==</u></strong></p>
+<ul>
+<li><a href="http://www.steven7.top/2016/08/14/%E5%9F%BA%E4%BA%8EHexoNexT%E7%9A%84SEO%E4%BC%98%E5%8C%96/#more">基于HexoNexT的SEO优化</a></li>
+</ul>
+<ul>
+<li><p>首先想要被收录要提交你的网址给百度和谷歌</p>
+<p>​（否则人家咋知道你的网址(ToT)/~~~）</p>
+<p>​<a href="http://www.baidu.com/search/url_submit.htm" target="_blank" rel="external">百度引擎提交入口</a></p>
+<p>​<a href="https://www.google.com/webmasters/tools/home?hl=zh-CN" target="_blank" rel="external">Google搜索引擎提交入口</a></p>
+</li>
+<li><p>接下来最好大家注册一下度娘和谷哥的站长服务，以便于你更好的管理自己的网站</p>
+<p>​<a href="http://zhanzhang.baidu.com/" target="_blank" rel="external">百度站长平台欢迎您</a></p>
+<p>​<a href="https://www.google.com/webmasters/tools/home?hl=zh-CN" target="_blank" rel="external">谷歌站长平台欢迎您</a></p>
+</li>
+</ul>
+<h4 id="验证网站拥有权"><a href="#验证网站拥有权" class="headerlink" title="验证网站拥有权"></a>验证网站拥有权</h4><p>​    站长平台基本上都需要你去验证网站，添加并验证后，证明您是该域名的    所有者之后才可以进行相关操作。各位看官可以根据自己的需求选择特定的验证方式完成验证。</p>
+<p><img src="http://i1.buimg.com/567571/8388041bf487bba5.png" alt=""></p>
+<p>等待验证完成之后可以进行相关的网页抓取操作，以便于搜索引擎收录。</p>
+<h4 id="robots测试"><a href="#robots测试" class="headerlink" title="robots测试"></a><code>robots</code>测试</h4><p>百度和谷歌都提供了类似的<code>robots</code><u>测试工具</u>便于我们测试<code>robots.txt</code>是否符合规范。</p>
+<p><a href="http://zhanzhang.baidu.com/robots/" target="_blank" rel="external">百度<code>robots</code></a></p>
+<p><a href="https://www.google.com/webmasters/tools" target="_blank" rel="external">谷歌<code>robots.txt</code>测试工具</a></p>
+<p>百度<code>robots</code> 工具没有提示，只是提示检测更新。</p>
+<p>谷歌<code>robots.txt</code>测试工具会提示你错误，请修改</p>
+<h4 id="提交站点地图"><a href="#提交站点地图" class="headerlink" title="提交站点地图"></a>提交站点地图</h4><p>我们在<a href="http://www.steven7.top/2016/08/14/%E5%9F%BA%E4%BA%8EHexoNexT%E7%9A%84SEO%E4%BC%98%E5%8C%96/#more">上一节</a>中提到过创建<code>sitemap</code>的方法，现在我们来使用它。</p>
+<p><code>sitemap.xml</code>适用于谷歌</p>
+<p><code>baidusitemap.xml</code>毋庸置疑适用于百度</p>
+<p><a href="https://www.google.com/webmasters/tools" target="_blank" rel="external">谷歌站点地图提交入口</a></p>
+<p><a href="http://zhanzhang.baidu.com/linksubmit" target="_blank" rel="external">百度站点地图提交入口</a></p>
+<p>其实<code>sitemap</code>只是一种提交网站链接给搜索引擎的一种方式。提交链接的方式还包括：主动推送、自动推送和手动推送。</p>
+<p>当然手动推送不建议大家使用，因为太费事费脑。脑子是个好东西==</p>
+<p>自动推送给百度的方式最为便捷，只需将自动推送的<code>JS</code>代码部署在每个页面的源代码中就可以了，当页面被浏览时，链接就会自动推送给百度。</p>
+<p>提交完成之后，百度和谷歌都会反馈给你最后抓取时间和抓取<code>URL</code>数量。</p>
+<h4 id="抓取方式"><a href="#抓取方式" class="headerlink" title="抓取方式"></a>抓取方式</h4><p><a href="https://www.google.com/webmasters/tools" target="_blank" rel="external">谷歌抓取方式</a></p>
+<p><a href="http://zhanzhang.baidu.com/crawltools/" target="_blank" rel="external">百度抓取方式</a></p>
+<p>每种抓取方式都分为<strong>桌面版</strong>还是<strong>移动版</strong>，以为我们博客类网站都选择桌面版抓取，点击抓取即可。不添加后缀，默认则是首页。</p>
+<p>抓取完成之后则会给出相应的提示信息。抓取成功与否。</p>
+<p>抓取完成之后根据提示完成相应的操作就可以了:-D</p>
+<h4 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h4><p>基本上，这样结束之后，就可以等着被度娘和谷哥收录就可以了==就只能这样默默的等待了。不是嘛== &lt;(－︿－)&gt;</p>
+<p>最后使用<code>site:your-site</code>验证你被收录了多少条吧==</p>
+<p>度娘还是比较傲娇的===</p>
+<p>虽然才两天的时间，你不收录我==但是谷哥已经收录4条了:-D</p>
+<p><img src="http://i4.buimg.com/567571/c0f38a106e6b923c.png" alt=""></p>
+<p><img src="http://i4.buimg.com/567571/0b6f489dd427e649.png" alt=""></p>
+<hr>
+<p>百度应用推荐：</p>
+<p><a href="http://su.baidu.com/" target="_blank" rel="external">百度云加速，免费<code>CDN</code>服务，为您的网站全面加速</a></p>
+<p><a href="http://ce.baidu.com/" target="_blank" rel="external">百度云观测，网站安全，观测一下，实时监测，问题报警</a></p>
+<hr>
+<p>以上应用没有任何利益相关，只是感觉不错推荐给大家 -</p>
+<p>百度云加速倘若不会使用；请参照<a href="http://jingyan.baidu.com/article/676629974ba6c054d51b84ab.html" target="_blank" rel="external">百度云加速百度经验</a></p>
+<p>说明问题如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">问题描述</th>
+<th style="text-align:left">解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">谷歌无法访问</td>
+<td style="text-align:left"><a href="http://www.0678life.com/" target="_blank" rel="external">天行浏览器</a>购买<code>vpn</code>炒鸡便宜</td>
+</tr>
+<tr>
+<td style="text-align:center">百度云加速之后无法访问</td>
+<td style="text-align:left">1.请在百度云加速中提交工单，请求百度专业人士解决2.<a href="http://www.ishuo.cn/show/1001052.html" target="_blank" rel="external">轻松设置百度云加速，让网站飞起来</a></td>
+</tr>
+<tr>
+<td style="text-align:center">百度云加速之后蜘蛛无法抓取</td>
+<td style="text-align:left">因为刚更换<code>DNS</code>服务器，蜘蛛可能还没有反应过来，发射弧</td>
+</tr>
+<tr>
+<td style="text-align:center">百度或谷歌长时间无法抓取</td>
+<td style="text-align:left">请切换<code>DNS</code>服务器</td>
+</tr>
+<tr>
+<td style="text-align:center">百度云加速之后会导致<code>Https</code>无妨访问</td>
+<td style="text-align:left">因为百度云（免费版）本身不支持，╮(╯▽╰)╭想用百度云加速木有办法啊啊啊！！除非把<code>DNS</code>切换回来。==专业版是支持的哟</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://tengj.top/2016/03/14/baidunoshouluresson/" target="_blank" rel="external">百度链接提交主动推送后不收录的原因</a></td>
+<td style="text-align:left">所以希望大家还是主动推送和自动推送相结合</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/15/Hexo-Seo-2/">http://www.steven7.top/2016/08/15/Hexo-Seo-2/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo博客页面留白太多,代码看起来不方便]]></title>
+      <url>http://www.steven7.top/2016/08/15/Hexo-page-leave-a-note/</url>
+      <content type="html"><![CDATA[<p>其实关于浏览器留白这个问题，每个人都有没个人的看法，有人感觉这块多了，那块少了..很难迎合大众。</p>
+<p>关于设置浏览器留白这一部分，<a href="http://theme-next.iissnan.com/faqs.html" target="_blank" rel="external">Hexo NexT主题官方文档</a>给出以下解决方案：</p>
+<p><img src="http://i2.piimg.com/567571/e4a3d80261be3ae4.png" alt=""></p>
+<p>但是该方法不适用于<code>Pisces</code>这不就尴尬了../(ㄒoㄒ)/~~</p>
+<p>本来用适用<code>pisces</code>不就是为了美观嘛—</p>
+<p>然后我就顺藤摸瓜，找到了上面所提到的<code>Issue</code></p>
+<p>里面刷刷刷列出了很多解决方法：</p>
+<p><img src="http://i2.piimg.com/567571/9c0b05e12200d525.png" alt=""></p>
+<p>好了，重点来了，最关键的被窝发现咯：</p>
+<p>对于 <code>Pisces Scheme</code>，需要同时修改 <code>header</code> 的宽度、<code>.main-inner</code> 的宽度以及 <code>.content-wrap</code> 的宽度。例如，使用百分比（<code>Pisces</code> 的布局定义在 <code>source/css/_schemes/Picses/_layout.styl</code> 中）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">header&#123; width: 90%; &#125;</div><div class="line">.container .main-inner &#123; width: 90%; &#125;</div><div class="line">.content-wrap &#123; width: calc(100% - 260px); &#125;</div></pre></td></tr></table></figure>
+<p><code>iissnan</code>表示：</p>
+<hr>
+<p>我并未对这个布局进行测试，自定义修改需要自己进行测试。另外，我觉得超过一定宽度后（一行内文字太多导致换行跨度太大），阅读体验都不怎么样。</p>
+<hr>
+<p>博主，自己设置的是<code>60%</code>的百分比，自我感觉观感体验最好:-D</p>
+<p>当然，什么是最好，自己感受才知道不是嘛@-@</p>
+<p>各位看官就自行调整吧==</p>
+<p>我去吃早饭了︿(￣︶￣)︿</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/15/Hexo-page-leave-a-note/">http://www.steven7.top/2016/08/15/Hexo-page-leave-a-note/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[基于HexoNexT的SEO优化]]></title>
+      <url>http://www.steven7.top/2016/08/14/%E5%9F%BA%E4%BA%8EHexoNexT%E7%9A%84SEO%E4%BC%98%E5%8C%96/</url>
+      <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本来建站没多久，刚开始接触，一开始使用的是<strong><em><a href="http://markdownpad.com/" target="_blank" rel="external">MarkdownPad 2</a></em></strong>进行博文编写的。谁料就在今天<a href="https://www.hrwhisper.me/" target="_blank" rel="external"><strong><em>hrwhisper</em></strong></a>在我的博文下面留言告诉我了<a href="http://www.typora.io/" target="_blank" rel="external"><strong><em>Typora</em></strong></a>这个美妙的东西。感觉<strong><em>Typora</em></strong>和<strong><em>markdown</em></strong>更配哟。</p>
+<h3 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h3><p>建站初期，当然是想让搜索引擎可以尽快的收录我咯。所以我这几天疯狂的发博文，其实就是这个道理:-D。</p>
+<p> 聊一聊我最近做的一些SEO优化吧！</p>
+<ul>
+<li>安装hexo的sitemap网站地图生成插件</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-sitemap --save</div><div class="line">npm install hexo-generator-baidu-sitemap --save</div></pre></td></tr></table></figure>
+<ul>
+<li><p>在hexo站点根目录下的<code>_config.yml</code>中添加如下代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#sitemap网站地址</div><div class="line">sitemap:</div><div class="line">path: sitemap.xml</div></pre></td></tr></table></figure>
+<p>此外，在<code>hexo</code>站点的<code>source</code>文件夹下创建<code>robots.txt</code>添加网络爬虫协议</p>
+<p>参考如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># hexo robots.txt</div><div class="line">User-agent: *</div><div class="line">Allow: /</div><div class="line">Allow: /archives/</div><div class="line"></div><div class="line">Disallow: /vendors/</div><div class="line">Disallow: /js/</div><div class="line">Disallow: /css/</div><div class="line">Disallow: /fonts/</div><div class="line">Disallow: /vendors/</div><div class="line">Disallow: /fancybox/</div><div class="line"></div><div class="line">Sitemap: http://www.steven7.top/sitemap.xml</div><div class="line">Sitemap: http://www.steven7.top/baidusitemap.xml</div></pre></td></tr></table></figure>
+<p><code>sitemap</code>网址请自行替换。</p>
+</li>
+<li><p>添加<code>nofollow</code>标签</p>
+<p><code>nofollow</code>标签即告诉搜索引擎不要追踪此网页上的链接，减少垃圾链接分散网站权重。</p>
+<p>所以我们要对非友情链接之外的出站链接添加<code>nofollow</code>标签，减少不必要的PR值输出。感兴趣的同学可以通过<a href="http://link.chinaz.com/" target="_blank" rel="external">chinaz站长工具友情链接检测进行查询</a>。</p>
+<p>下面以<code>Hexo NexT</code>主题为例，进行修改指导</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">your-hexo-site\themes\next\layout\_partials\footer.swig</div><div class="line"></div><div class="line">line 12:add tag(rel="external nofollow")</div><div class="line"></div><div class="line">&#123;&#123; __('footer.powered', '<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"theme-link"</span> <span class="attr">href</span>=<span class="string">"http://hexo.io"</span> <span class="attr">rel</span>=<span class="string">"external nofollow"</span>&gt;</span>Hexo<span class="tag">&lt;/<span class="name">a</span>&gt;</span>') &#125;&#125;</div><div class="line"></div><div class="line">line 17:add tag(rel="external nofollow")</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"theme-link"</span> <span class="attr">href</span>=<span class="string">"https://github.com/iissnan/hexo-theme-next"</span> <span class="attr">rel</span>=<span class="string">"external nofollow"</span>&gt;</span></div><div class="line">--------------------------------------------------------------------------------------------</div><div class="line">your-hexo-site\themes\next\layout\_macro\sidebar.swig</div><div class="line"></div><div class="line">line 75:add tag(rel="external nofollow")</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; link &#125;&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; name &#125;&#125;"</span> <span class="attr">rel</span>=<span class="string">"external nofollow"</span>&gt;</span></div><div class="line"></div><div class="line">line 89:add tag(rel="external nofollow")</div><div class="line"></div><div class="line"> <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://creativecommons.org/&#123;% if theme.creative_commons === 'zero' %&#125;publicdomain/zero/1.0&#123;% else %&#125;licenses/&#123;&#123; theme.creative_commons &#125;&#125;/4.0&#123;% endif %&#125;/"</span> <span class="attr">class</span>=<span class="string">"cc-opacity"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"external nofollow"</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>title</code>优化</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">your-hexo-site\themes\next\layout\index.swig</div><div class="line"></div><div class="line">line 5:add tag(&#123;&#123; theme.keywords &#125;&#125; &#123;&#123; config.title &#125;&#125;)</div><div class="line"></div><div class="line">&#123;% block title %&#125; &#123;&#123; theme.keywords &#125;&#125; &#123;&#123; config.title &#125;&#125; - &#123;&#123; theme.description &#125;&#125; &#123;% endblock %&#125;</div></pre></td></tr></table></figure>
+<p>提示：</p>
+<p><u>整个标题不要超过80字符，不要堆砌关键字</u></p>
+</li>
+<li><p>提交网站</p>
+<p><a href="http://www.soshoulu.com/sousuotijiao/baidu/tijiao/" target="_blank" rel="external">百度入口</a></p>
+<p><a href="http://info.so.360.cn/site_submit.html" target="_blank" rel="external">360入口</a></p>
+<p>网站提交成功之后，可以通过各站长平台进行站点管理。</p>
+</li>
+<li><p><code>NexT</code>主题内置的<code>SEO</code>优化工具</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">your-hexo-site\themes\next\_config.yml</div><div class="line"></div><div class="line">line 22:</div><div class="line">cannoical: true</div><div class="line"></div><div class="line">line 333:</div><div class="line">baidu_push: ture</div></pre></td></tr></table></figure>
+<p><code>cannoical</code>标签适用于解决由于网址形式不同内容相同而造成的内容重复问题。</p>
+<p><code>baidu_push</code>标签将<code>url</code>自动推送到百度</p>
+</li>
+<li><p>小技巧</p>
+<p><a href="http://kuangqi.me/tricks/append-a-copyright-info-after-every-post/" target="_blank" rel="external">为Hexo博客的每一篇文章自动追加版权信息</a></p>
+<p>简要概括如下：</p>
+<p><code>your-hexo-site\scripts</code>中创建<code>AddDeclare.js</code>脚本文件（文件名随意）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">AddDeclare.js：</div><div class="line">var fs = require('fs');</div><div class="line">hexo.extend.filter.register('before_post_render', function(data)&#123;</div><div class="line">    if(data.copyright == false) return data;</div><div class="line">    var file_content = fs.readFileSync('tail.md');</div><div class="line">    if(file_content &amp;&amp; data.content.length &gt; 50) </div><div class="line">    &#123;</div><div class="line">        data.content += file_content;</div><div class="line">        var permalink = '\n本文永久链接：' + data.permalink;</div><div class="line">        data.content += permalink;</div><div class="line">    &#125;</div><div class="line">    return data;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><code>tail.md</code>为脚本信息文件，请诸君自己编写，将<code>tail.md</code>置于<code>Hexo</code>根目录下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">tail.md:</div><div class="line"></div><div class="line">版权声明</div><div class="line"></div><div class="line">Steven`s Notes by Steven is licensed under a Creative Commons BY-NC-ND 4.0 International License.  </div><div class="line"></div><div class="line">由裴士超创作并维护的斯蒂芬博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。</div><div class="line"></div><div class="line">本文首发于Steven`s Notes博客（ http://www.steven7.top ），版权所有，侵权必究。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>最后聊一聊使用<code>Typora</code>的小感受吧：</p>
+<p>感觉的确是要比<code>MarkdownPad</code>方便很多，但是还是有一些不足吧！</p>
+<ol>
+<li><p>每次编辑完代码之后，总是很难切换到下一行==这一点是让我最头痛的/(ㄒoㄒ)/~~最能先切换到源码模式再切换回来。</p>
+</li>
+<li><p>每次使用完<code>list</code>工具之后，鼠标无法退出<code>list</code>模式，同样要进入源码模式切换/(ㄒoㄒ)/~~</p>
+</li>
+<li><p>的确是炒鸡方便有木有，比<code>Markdownpad</code>的实时预览好很多==推荐大家使用:-D</p>
+<p>​</p>
+</li>
+</ol>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/14/基于HexoNexT的SEO优化/">http://www.steven7.top/2016/08/14/基于HexoNexT的SEO优化/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo的奇淫技巧第二发：自动备份Hexo博客源文件]]></title>
+      <url>http://www.steven7.top/2016/08/13/Hexo%E7%9A%84%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7%E7%AC%AC%E4%BA%8C%E5%8F%91/</url>
+      <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近开始写博文的原因其实就是因为无聊..<br>写着写着感觉用Hexo写博文是一种享受~(≧▽≦)/~啦啦啦。写多了就想万一换了电脑或者电脑硬盘出问题了该咋整/(ㄒoㄒ)/~~<br>那将会是哭尽长江水都无法挽回啊！！！所以想着要有个备份方案吧。</p>
+<ul>
+<li><p>方案一：硬盘上复制一份咯。你是不是傻、硬盘坏了不也就木有了==</p>
+</li>
+<li><p>方案二：U盘咯。懒 pass</p>
+</li>
+<li><p>方案三：网盘吧。需要上传吧。懒 懒 懒 pass</p>
+</li>
+<li><p>方案四：github是个好东西，希望每个人都会用:-D</p>
+</li>
+</ul>
+<h2 id="文件托管到github"><a href="#文件托管到github" class="headerlink" title="文件托管到github"></a>文件托管到github</h2><ul>
+<li><p>新建repository，命名与本地项目文件夹相同（例如：我的为Hexo）</p>
+</li>
+<li><p>进入本地<code>Hexo</code>文件夹，执行以下命令创建仓库</p>
+<p>  <code>git init</code></p>
+</li>
+<li><p>设置远程仓库地址</p>
+<p>  <code>git remote add origin https://github.com/peishichao/Hexo.git</code></p>
+</li>
+</ul>
+<p>如果报错：<code>fatal: remote origin already exists.</code></p>
+<p>解决办法如下：<code>git remote rm origin</code></p>
+<ul>
+<li><p>Hexo源码提交</p>
+<pre><code>git add .
+
+git commit -m &quot;添加hexo源码文件作为备份&quot;
+
+git push origin master
+</code></pre></li>
+</ul>
+<p>如果报错：<code>Permission denied (publickey).</code></p>
+<p>解决方法如下：</p>
+<pre><code>ssh-agent
+
+ssh-add ~/.ssh/id_key
+</code></pre><p>如果报错    <code>error:failed to push som refs to .......</code></p>
+<p>解决方式如下：</p>
+<pre><code>git pull origin master
+git push origin master
+</code></pre><ul>
+<li>完成</li>
+</ul>
+<p>经过上面的操作之后，本地的Hexo源码就已经上传到github服务器上进行备份了，就再也不用担心代码丢失找不到了(<em>^__^</em>) 嘻嘻……</p>
+<p>当远程仓库有更新的时候，执行下面代码就可将hexo源码放到本地了。</p>
+<pre><code>git pull origin master
+</code></pre><h3 id="实现自动化操作"><a href="#实现自动化操作" class="headerlink" title="实现自动化操作"></a>实现自动化操作</h3><p>我说过我很懒..上面的操作远远不能达到我的心里预期，所以我还要实现自动化操作才可以咯。</p>
+<p><a href="http://www.steven7.top/2016/08/13/Hexo%E7%9A%84%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7%E7%AC%AC%E4%B8%80%E5%8F%91/#more">Hexo的奇淫技巧第一发</a>中我们已经提到了怎么在<code>Hexo</code>添加文章时自动打开编辑器了。原理是利用<code>nodeJs</code>的事件监听机制来实现监听Hexo的new事件来启动编辑器，完成自动启动编辑器的操作。</p>
+<p>那么可不可以通过通过监听Hexo的其它事件来完成自动执行Git命令完成自动备份呢？通过查阅Hexo文档，找到了Hexo的主要事件，见下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件名</th>
+<th style="text-align:right">事件发生时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">deployBefore</td>
+<td style="text-align:right">在部署完成前发布</td>
+</tr>
+<tr>
+<td style="text-align:left">deployAfter</td>
+<td style="text-align:right">在部署成功后发布</td>
+</tr>
+<tr>
+<td style="text-align:left">exit</td>
+<td style="text-align:right">在 Hexo 结束前发布</td>
+</tr>
+<tr>
+<td style="text-align:left">generateBefore</td>
+<td style="text-align:right">在静态文件生成前发布</td>
+</tr>
+<tr>
+<td style="text-align:left">generateAfter</td>
+<td style="text-align:right">在静态文件生成后发布</td>
+</tr>
+<tr>
+<td style="text-align:left">new</td>
+<td style="text-align:right">在文章文件建立后发布</td>
+</tr>
+</tbody>
+</table>
+<p>所以我们就可以通过监听Hexo的deployAfter事件，待上传完成之后自动运行Git备份命令打到自动备份的目的。</p>
+<p>要实现这个自动备份功能，需要依赖<code>NodeJs</code>的一个<code>shelljs</code>模块,该模块重新包装了<code>child_process</code>,调用系统命令更加的方便。该模块需要安装后使用。</p>
+<pre><code>npm install --save shelljs
+</code></pre><p>操作步骤：</p>
+<ol>
+<li>编写脚本，在<code>Hexo</code>根目录下的<code>scripts</code>（如果没有请新建）创建autoGItSave.js文件,文件名随意。</li>
+<li>脚本内容如下：</li>
+</ol>
+<pre><code>        var exe = require(&apos;child_process&apos;);
+function run() {
+        console.log(&quot;开始上传源代码&quot;);
+       if(exe.execFile(&apos;D:/Hexo/GitUpdate.bat&apos;).code !== 0){
+        console.log(&quot;恭喜你更新Github成功&quot;);
+       }
+       if(exe.execFile(&apos;D:/Hexo/GitUpdate.bat&apos;).code == 0){
+        console.log(&quot;更新Github失败&quot;);
+       }
+        }
+     hexo.on(&apos;deployAfter&apos;, function() {
+        run();
+});
+</code></pre><p>其中<code>D:/Hexo/GitUpdate.bat</code>内容如下：</p>
+<pre><code>git add --all
+git commit -am &quot;Form auto backup script\&apos;s commit&quot;
+git push origin master
+</code></pre><p>请确保<code>GitUpdate.bat</code>文件位于Hexo的根目录下。</p>
+<p>保存脚本并退出，然后执行<code>hexo deploy</code>命令，可以得到如下的类似结果：</p>
+<pre><code>[master 4ae3ace] Site updated: 2016-08-14 00:05:25
+ 4 files changed, 44 insertions(+), 76 deletions(-)
+Branch master set up to track remote branch master from https://github.com/peishichao/peishichao.github.io.git.
+To https://github.com/peishichao/peishichao.github.io.git
+   d781e56..4ae3ace  HEAD -&gt; master
+INFO  Deploy done: git
+开始上传源代码
+恭喜你更新Github成功
+</code></pre><p>这样子，每次更新博文并<code>deploy</code>到服务器上之后，备份就自动启动并完成备份啦~是不是很方便呢？麻麻再也不用担心我们的博文找不到啦:-D</p>
+<p>Enjoy it！</p>
+<p>have a nice day!!</p>
+<p>蟹蟹O(∩_∩)O</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第二发/">http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第二发/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo的奇淫技巧第一发：添加文章时自动打开编辑器]]></title>
+      <url>http://www.steven7.top/2016/08/13/Hexo%E7%9A%84%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7%E7%AC%AC%E4%B8%80%E5%8F%91/</url>
+      <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>扯一扯，本来今天心想写一下感悟啥的，谁知道小件小事耽误了整个上午的青春、、简直要哭瞎有木有、、<br><img src="http://i1.piimg.com/567571/abe13cbe996fb11a.png" width="200" heght="200" class="img-center"><br>下面就来说一说心痛的事情，让各位看官笑一笑:-D</p>
+<h2 id="就想偷偷懒自动打开而已"><a href="#就想偷偷懒自动打开而已" class="headerlink" title="就想偷偷懒自动打开而已"></a>就想偷偷懒自动打开而已</h2><p>刚刚拥有属于自己的小站，当然炒鸡炒鸡鸡冻。所以想着多写点文章啥的。写的多了，想着可不可以在Hexo new 文章的时候使用markdownPad自动打开刚添加的文章那。。这样粑粑就可以少做几件事情了，就可以那剩下来的时间玩耍了（LOL啊。炉石啊。啊  我的大海啊）。本来想法很好，也很切合实际咯。我就开始动手了、、谁知道弄了半天都没弄好，最后，打开网易云静了静突发灵感才搞定。。大海啊全是我的泪水。<br><img src="http://i2.piimg.com/567571/5c90f6253a6beb6b.png" class="img-center"><br>下面给各位看官解决方案L</p>
+<p>解决方案（使用<code>hexo new article</code> 自动打开刚添加的博文）</p>
+<ul>
+<li>在Hexo目录下新建script目录</li>
+<li>在script新建js脚本文件</li>
+<li>脚本内容如下：<br>  <code>var exe = require(&#39;child_process&#39;);</code><br>  <code>hexo.on(&#39;new&#39;, function(data){</code><br>  <code>console.log(data);</code><br>  <code>exe.execFile(&#39;C:/Program Files (x86)/MarkdownPad 2/MarkdownPad2.exe&#39;,[data.path]);</code><br>  <code>});</code></li>
+</ul>
+<p>保存退出之后使用<code>hexo new article</code>命令后就可以用指定的app打开文章了，炒鸡方便。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=16858400&auto=1&height=66"></iframe>
+
+
+<p>最后给大家分享一首自己很喜欢的歌、虽然是单身狗但是炒鸡想学会了唱给自己的女朋友听…</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第一发/">http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第一发/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[win10下MarkdownPad相关问题解决]]></title>
+      <url>http://www.steven7.top/2016/08/12/win10%E4%B8%8BMarkdownPad%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+      <content type="html"><![CDATA[<h3 id="markdownpad相关问题"><a href="#markdownpad相关问题" class="headerlink" title="markdownpad相关问题"></a>markdownpad相关问题</h3><h4 id="win10下MarkdownPad预览无法显示的解决"><a href="#win10下MarkdownPad预览无法显示的解决" class="headerlink" title="win10下MarkdownPad预览无法显示的解决"></a>win10下MarkdownPad预览无法显示的解决</h4><p><img src="http://easun.org/blog/upload/md_pd.png" alt=""><br>实时预览模式竟然不能用..wtf<br>难道逼我换软件！！！！<br>其实根据官网文档给出的提示</p>
+<blockquote>
+<p>LivePreview is not working - it displays an error message stating This view has crashed!</p>
+<p>This issue has been specifically observed in Windows 8. You may see an error message as shown here, and no HTML will be rendered when you type in the Markdown Editor pane.</p>
+<p>To fix this issue, please try installing the Awesomium 1.6.6 SDK.</p>
+<p>If you continue to experience issues, please install Microsoft’s DirectX End-User Runtimes (June 2010).</p>
+</blockquote>
+<p>我们只需要下载安装<a href="http://markdownpad.com/download/awesomium_v1.6.6_sdk_win.exe" target="_blank" rel="external">Awesomium 1.6.6 SDK</a>.就可以了。</p>
+<p>下载安装，再次打开，一切正常:-D<img src="http://easun.org/blog/upload/md_pd_ok.png" alt=""></p>
+<h4 id="MarkdownPad上传图片不方便？"><a href="#MarkdownPad上传图片不方便？" class="headerlink" title="MarkdownPad上传图片不方便？"></a>MarkdownPad上传图片不方便？</h4><p>Are you kidding me？上传图片不方便？</p>
+<p>那是因为你没有接收到这个神奇的网站的呐喊！！！！</p>
+<blockquote>
+<p><a href="http://yotuku.cn/" target="_blank" rel="external">http://yotuku.cn/</a></p>
+</blockquote>
+<p>打开这个网站你会感觉整个世界都变成彩色的了。再也没有什么东西可以阻止markdown统治这个世界了…ahahh 请原谅我的笑:-D</p>
+<p>最后来分享一波。MarkdownPad的注册码。<img src="http://i2.piimg.com/567571/9bd6991f658a344b.png" alt=""></p>
+<p>邮箱：</p>
+<blockquote>
+<p>Soar360@live.com</p>
+</blockquote>
+<p>授权秘钥：</p>
+<blockquote>
+<p>GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xh<br>MNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeT<br>G7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8<br>HUpTtLA2a5/sQytXJUQl/<br>QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4B<br>oNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/<br>eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</p>
+</blockquote>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/12/win10下MarkdownPad相关问题解决/">http://www.steven7.top/2016/08/12/win10下MarkdownPad相关问题解决/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[谈谈Hexo搭建的个人博客]]></title>
+      <url>http://www.steven7.top/2016/08/12/%E8%B0%88%E8%B0%88Hexo%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<p>大学毕业之后回家断断续续将近2个月的时间了==本打算在家里把驾照考完，可是谁料到人实在是太多了！！导致现在还木有考科目四。马上就要开学了/(ㄒoㄒ)/~~。就在前天随意逛着逛着翻到了<a href="http://notes.iissnan.com/" target="_blank" rel="external">iissnan</a>的博客。感觉自己一直就想要这样一个简洁的博客。所以看了他的博客之后，当机立断就去买域名去了。</p>
+<h2 id="挑选域名"><a href="#挑选域名" class="headerlink" title="挑选域名"></a>挑选域名</h2><p>当然购买域名有很多的途径。我以前也木有听说过百度开放云。不知道我怎么就点进百度开放云里面去买域名去了。现在怎么想也回想不起来为啥（简直Ridiculous）。<img src="http://i4.piimg.com/567571/370154642b07446e.png" alt=""><br>大致域名注册都跟这个页面长得差不多。我选择百度的原因还有可能就是他长得好看呗。然后输入自己想注册的网址然后付款就可以了。百度最近在做活动。我注册了.top的顶级域名才花了4块大洋。这一点一定是这一点我选择了它（便宜是王道）。然后这个域名就是属于你的了。然后就会有属于你的控制台来管理该域名。<img src="http://i2.piimg.com/567571/2ff1a4b90e570b2e.png" alt=""><br>进入域名服务可以对域名进行管理，对域名进行解析、续费等操作。<br><img src="http://i2.piimg.com/567571/7ab560ad26f26a3a.png" alt=""><br>的确现在有了属于自己的域名，然而我们还需要有自己的博客不是吗、意识到这个问题我们才要开始我们的正事:-D</p>
+<h2 id="使用hexo搭建我们的博客"><a href="#使用hexo搭建我们的博客" class="headerlink" title="使用hexo搭建我们的博客"></a>使用<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a>搭建我们的博客</h2><p>hexo是一种快速、简洁且高效的博客框架。使用node.js技术可以让上百个页面在几秒内瞬间完成渲染。等等。。（都是抄的，原谅我手懒==）</p>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>温馨提示：下面的操作仅针对windows用户，其他用户请参照官网。<br>安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>、<a href="https://git-scm.com/" target="_blank" rel="external">GIt</a>.</p>
+<p>安装上述程序之后，执行以下代码完成hexo安装。</p>
+<pre><code>npm install -g hexo-cli
+</code></pre><p>安装Hexo完成之后，在指定的文件夹内初始化Hexo。</p>
+<pre><code>cd folder
+hexo init
+npm install
+</code></pre><p>其实到此为止，你已经初步拥有了一个自己简洁（说实话是简陋）的博客了。想了解关于框架详细内容的请转至hexo官网了解详情。作为我们高端审美来说，这么丑的博客当然是不可以了…hexo提供多种主题可供选择。我选择的是NexT。接下来我就以NexT来说。</p>
+<h3 id="安装NexT"><a href="#安装NexT" class="headerlink" title="安装NexT"></a>安装<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT</a></h3><p>官网提供了两种方式下载NexT。一种是git clone，另一种是下载压缩包。本文选择git clone的方式。</p>
+<pre><code>cd your-hexo-site
+git clone https://github.com/iissnan/hexo-theme-next themes/next
+</code></pre><h4 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h4><p>打开Hexo位于站点根目录下的_config.yml文件，找到theme字段，并将其值更改为next。</p>
+<pre><code>theme：next
+</code></pre><p>这样，HexT主题安装成功。验证主题是否正确之前，最好使用hexo clean来清除hexo的缓存。</p>
+<h4 id="验证主题"><a href="#验证主题" class="headerlink" title="验证主题"></a>验证主题</h4><p>生成静态文件，启动服务器并开启调试模式进行监控</p>
+<pre><code>hexo generate
+hexo s --debug
+</code></pre><p>在服务启动的过程中，注意观察命令行是否有异常信息。当命令行输出中提示</p>
+<blockquote>
+<p>INFO  Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop.</p>
+</blockquote>
+<p>此时即可使用浏览器访问<a href="http://localhost:4000，检查站点是否正常运行。" target="_blank" rel="external">http://localhost:4000，检查站点是否正常运行。</a></p>
+<p> 当你看到站点的外观与下面所示类似时说明你已经成功按照NexT主题。</p>
+<p><img src="http://theme-next.iissnan.com/uploads/five-minutes-setup/validation-default-scheme-mac.png" alt=""></p>
+<p>主题设定等请参照官网文档进行个性化设置。</p>
+<h3 id="部署配置"><a href="#部署配置" class="headerlink" title="部署配置"></a>部署配置</h3><p>我们已经完成了Hexo个性化配置中的基本信息和主题配置，还剩一项部署 - deploy。</p>
+<pre><code>hexo deploy
+</code></pre><p>通过上述命令可以将你的hexo博客提交到github上，从而刷新你的github page。</p>
+<p>换句话说，如果执行了new、clean、generate,只是在你的电脑上生成了最新的博客，如果不执行deploy，新添加的内容是不会被推送到GitHub Pages上的。</p>
+<p>既然我们已经决定将Hexo部署到GitHub，那么我们还是先看看需要在GitHub上做哪些前置准备。</p>
+<h3 id="连接到GitHub"><a href="#连接到GitHub" class="headerlink" title="连接到GitHub"></a>连接到GitHub</h3><p>如果还没有GItHub账号，在<a href="https://github.com/join" target="_blank" rel="external">这里</a>申请一个</p>
+<p>如果拥有了账号，还没有GItHub Pages地址，在页面右上角你的头像旁边点击 + 号按钮，选择repository。在Repository name中填写</p>
+<blockquote>
+<p>[你的用户名].github.io</p>
+</blockquote>
+<p><strong>注意，你的用户名必须与你实际的用户名一字不差。</strong></p>
+<p>然后选Public。</p>
+<p>去掉 Initialize this repository with a README 前的钩。</p>
+<p>然后点击 Create repository。</p>
+<p>成功后，就可以通过 <a href="http://[你的用户名].github.io" target="_blank" rel="external">http://[你的用户名].github.io</a> 访问你的页面了。</p>
+<p>也许它现在还空无一物，接下来我们就把Hexo的内容放进去。</p>
+<h3 id="配置Deploy"><a href="#配置Deploy" class="headerlink" title="配置Deploy"></a>配置Deploy</h3><p>当你拥有了个人的GitHub Pages后，再回到Hexo的_config.yml文件，找到Deployment章节。</p>
+<p>将type改为git，repository改为你的GitHub Pages地址。</p>
+<p>然后执行下述代码就可以发布自己的博客了。</p>
+<pre><code>hexo deploy
+</code></pre><p>比如我的博客，地址应该是：</p>
+<blockquote>
+<p><a href="http://peishichao.github.io" target="_blank" rel="external">http://peishichao.github.io</a></p>
+</blockquote>
+<p>恭喜！！你已经使用Hexo完成了个人博客的搭建并将它发布在GitHub Pages可供公开访问啦！</p>
+<h3 id="日常维护"><a href="#日常维护" class="headerlink" title="日常维护"></a>日常维护</h3><p>当部署成功后，我们日常只需要：</p>
+<p>新建文章(new)</p>
+<p>找到生成的.md然后编辑并保存</p>
+<p>生成博客(generate)</p>
+<p>部署(deploy)</p>
+<p>就可以完成新文章的发布。</p>
+<h3 id="将GitHub关联到域名上"><a href="#将GitHub关联到域名上" class="headerlink" title="将GitHub关联到域名上"></a>将GitHub关联到域名上</h3><p>上面我们已经申请过域名了，我们接下来要做的就是讲自己申请过的域名与github page关联。<br>登录访问github</p>
+<blockquote>
+<p>进入github中github page相应的项目中，在该项目中创建CNAME，其CNAME内容即是域名。</p>
+</blockquote>
+<p>查询github page的服务器IP地址</p>
+<blockquote>
+<p>可以使用国内的域名ip地址查询的<a href="http://ip.chinaz.com/" target="_blank" rel="external">工具</a>,将你自己的github page的域名输进去得到ip地址。</p>
+</blockquote>
+<p><img src="http://i1.piimg.com/567571/49c21bc128e4ff90.png" alt=""><br>然后进入你购买的域名的域名服务中进行域名解析，点击域名解析，依次填写相应内容。</p>
+<blockquote>
+<p>记录类型-A</p>
+<p>主机记录-www</p>
+<p>解析线路 默认</p>
+<p>记录值填写github page的ip地址</p>
+</blockquote>
+<p>最后点击保存。<br>验证域名和github page关联是否成功。<br><img src="http://i1.piimg.com/567571/ad889e53a23882ee.png" alt=""><br><img src="http://i1.piimg.com/567571/7714d0350e403d6e.png" alt=""></p>
+<p>夜深了，洗洗睡，回头再念叨。</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/12/谈谈Hexo搭建的个人博客/">http://www.steven7.top/2016/08/12/谈谈Hexo搭建的个人博客/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://www.steven7.top/2016/08/11/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/11/hello-world/">http://www.steven7.top/2016/08/11/hello-world/</a></p>
+]]></content>
+    </entry>
+    
+  
+  
+</search>
