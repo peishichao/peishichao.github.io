@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Steven`s Notes">
 <meta property="og:image" content="http://i2.buimg.com/567571/b06ebb799f1e90bc.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/473944d51f13444e.png">
-<meta property="og:updated_time" content="2016-08-19T09:20:21.190Z">
+<meta property="og:updated_time" content="2016-08-19T09:24:19.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHubHelp-SSH相关问题Error:Permission-denied(publickey)">
 <meta name="twitter:image" content="http://i2.buimg.com/567571/b06ebb799f1e90bc.png">
@@ -384,7 +384,7 @@
 <h4 id="SSH相关问题"><a href="#SSH相关问题" class="headerlink" title="SSH相关问题"></a><code>SSH</code>相关问题</h4><h5 id="错误：权限被拒绝（公钥）-Error-Permission-denied-publickey"><a href="#错误：权限被拒绝（公钥）-Error-Permission-denied-publickey" class="headerlink" title="错误：权限被拒绝（公钥）-Error: Permission denied (publickey)"></a>错误：权限被拒绝（公钥）-<code>Error: Permission denied (publickey)</code></h5><p>该错误表示<strong><em>服务器拒绝连接</em></strong>，可能的情况有很多种，其中常见的例子说明如下：</p>
 <ul>
 <li><p>应该使用管理员权限使用<code>git</code></p>
-<p>  sudo git push</p>
+<p><code>sudo git push</code></p>
 </li>
 <li><p>确保您连接到正确的服务器地址</p>
 <p> 打字很辛苦，我们众所周知。请耐心书写。无论如何，你都没有办法连接到”<code>githib.com</code>“或者“<code>guthub.com</code>”的。在某些情况下，企业网络可能因为<code>DNS</code>解析记录等造成相关问题。</p>
@@ -450,27 +450,27 @@ origin  git@github.com:USERNAME/OTHERREPOSITORY.git (push)
 </code></pre><ul>
 <li><p>确保你有密钥</p>
 <p> <a href="https://desktop.github.com/" target="_blank" rel="external"><code>GitHub for Windows</code></a>是最好的选择。你可以用于<code>clone</code>资源库而不需要密钥。并且它可以使用<code>GIt Bash</code>工具。（<code>github</code>实力推广一波，不是我的锅啊）</p>
-<p> 如果你使用的是<code>Git Bash</code>工具，验证如下：</p>
+<p>如果你使用的是<code>Git Bash</code>工具，验证如下：</p>
 <pre><code># start the ssh-agent in the background
 eval &quot;$(ssh-agent -s)&quot;
 Agent pid 59566
 </code></pre></li>
 </ul>
-<p>如果你使用的是<code>git for windows</code>工具，验证如下：</p>
+<p>​    如果你使用的是<code>git for windows</code>工具，验证如下：</p>
 <pre><code># start the ssh-agent in the background
 eval $(ssh-agent -s)
 Agent pid 59566
-</code></pre><p>确保你拥有私钥并且已经加载到<code>SSH</code>中，验证如下：(<code>OpenSSH 6.7 or older</code>)</p>
+</code></pre><p>​    确保你拥有私钥并且已经加载到<code>SSH</code>中，验证如下：(<code>OpenSSH 6.7 or older</code>)</p>
 <pre><code>$ ssh-add -l
 2048 a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d /Users/you/.ssh/id_rsa (RSA)
-</code></pre><p><code>OpenSSH 6.8 or newer</code></p>
+</code></pre><p>​    <code>OpenSSH 6.8 or newer</code></p>
 <pre><code>$ ssh-add -l -E md5
 2048 MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d /Users/you/.ssh/id_rsa (RSA)
-</code></pre><p>如果没有打印出相关信息，你需要去生成新的<code>SSH</code>钥匙。<a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">请戳我</a></p>
-<p>检查是否存在已经存在的<code>SSH</code>密钥。<a href="https://help.github.com/articles/checking-for-existing-ssh-keys/" target="_blank" rel="external">戳我</a></p>
-<p>生成<code>SSH</code>密钥并添加至<code>ssh-agent</code>。 <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">戳我戳我</a></p>
-<p>添加新的密钥到你的<code>GitHub</code>账户。 <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/" target="_blank" rel="external">戳我戳我戳我</a></p>
-<p>上述情况翻译于<code>GitHub</code> 官网翻译文档</p>
+</code></pre><p>​    如果没有打印出相关信息，你需要去生成新的<code>SSH</code>钥匙。<a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">请戳我</a></p>
+<p>​    检查是否存在已经存在的<code>SSH</code>密钥。<a href="https://help.github.com/articles/checking-for-existing-ssh-keys/" target="_blank" rel="external">戳我</a></p>
+<p>​    生成<code>SSH</code>密钥并添加至<code>ssh-agent</code>。 <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">戳我戳我</a></p>
+<p>​    添加新的密钥到你的<code>GitHub</code>账户。 <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/" target="_blank" rel="external">戳我戳我戳我</a></p>
+<p>​    上述情况翻译于<code>GitHub</code> 官网翻译文档</p>
 <h4 id="Hexo主题相关问题解答："><a href="#Hexo主题相关问题解答：" class="headerlink" title="Hexo主题相关问题解答："></a><code>Hexo</code>主题相关问题解答：</h4><p><code>Hexo deploy</code>相关问题基本都可以从上面找到答案。如果上述方案无法解决，以下方案实在是无奈之举–纯属看各位看官的运气。</p>
 <p><code>Hexo</code>主题配置：</p>
 <pre><code>deploy:
