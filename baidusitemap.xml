@@ -4,6 +4,37 @@
 
     
   <url>
+    <loc>http://www.steven7.top/2016/08/23/graduatefromcsu/</loc>
+    <lastmod>2016-08-23T09:30:11.552Z</lastmod>
+    <data>
+        <display>
+        <title>毕业回想-附赠蹭饭神器</title>
+        <pubTime>2016-08-23T09:10:40.000Z</pubTime>
+        
+        <tag>毕业</tag>
+         
+        <tag>蹭饭地图</tag>
+         
+        <tag>SVG</tag>
+         
+        <tag>amCharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://www.steven7.top/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+    
+  <url>
     <loc>http://www.steven7.top/2016/08/19/peoblem-about-git/</loc>
     <lastmod>2016-08-19T09:24:19.276Z</lastmod>
     <data>
@@ -88,9 +119,9 @@
         <title>Hexo博客页面留白太多,代码看起来不方便</title>
         <pubTime>2016-08-15T00:02:15.000Z</pubTime>
         
-        <tag>页面留白</tag>
-         
         <tag>Hexo</tag>
+         
+        <tag>页面留白</tag>
          
          
            
@@ -110,9 +141,9 @@
         <title>基于HexoNexT的SEO优化</title>
         <pubTime>2016-08-14T07:31:39.000Z</pubTime>
         
-        <tag>Hexo</tag>
-         
         <tag>SEO优化</tag>
+         
+        <tag>Hexo</tag>
          
          
            
@@ -134,11 +165,11 @@
         
         <tag>Hexo</tag>
          
-        <tag>github</tag>
-         
         <tag>NexT</tag>
          
         <tag>搭建博客</tag>
+         
+        <tag>github</tag>
          
          
            
@@ -161,9 +192,9 @@
         
         <tag>Hexo</tag>
          
-        <tag>自动备份</tag>
-         
         <tag>github</tag>
+         
+        <tag>自动备份</tag>
          
          
            
@@ -236,6 +267,13 @@
     </data>
     </url>
 
+    
+    
+    
+    
+    
+    
+    
     
     
 </urlset>
