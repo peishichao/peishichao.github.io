@@ -82,7 +82,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo,技巧,网站背景,网站图标," />
+  <meta name="keywords" content="函数实现,printf," />
 
 
 
@@ -99,15 +99,16 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo的奇淫技巧第三发：添加背景以及网站图标设置">
-<meta property="og:url" content="http://www.steven7.top/2016/08/16/hexoskillthree/index.html">
+<meta property="og:title" content="printf函数实现">
+<meta property="og:url" content="http://www.steven7.top/2016/09/06/printf函数实现/index.html">
 <meta property="og:site_name" content="Steven`s Notes">
-<meta property="og:image" content="http://i4.buimg.com/567571/aecc6833cfb98a61.png">
+<meta property="og:image" content="http://i4.buimg.com/567571/eae0cc18aa7647f4.png">
+<meta property="og:image" content="http://i4.buimg.com/567571/c308e26957b9a8b6.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/473944d51f13444e.png">
-<meta property="og:updated_time" content="2016-08-19T01:06:52.325Z">
+<meta property="og:updated_time" content="2016-09-07T16:51:39.020Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo的奇淫技巧第三发：添加背景以及网站图标设置">
-<meta name="twitter:image" content="http://i4.buimg.com/567571/aecc6833cfb98a61.png">
+<meta name="twitter:title" content="printf函数实现">
+<meta name="twitter:image" content="http://i4.buimg.com/567571/eae0cc18aa7647f4.png">
 
 
 
@@ -128,9 +129,9 @@
 
 
 
-  <link rel="canonical" href="http://www.steven7.top/2016/08/16/hexoskillthree/"/>
+  <link rel="canonical" href="http://www.steven7.top/2016/09/06/printf函数实现/"/>
 
-  <title> Hexo的奇淫技巧第三发：添加背景以及网站图标设置 | Steven`s Notes </title>
+  <title> printf函数实现 | Steven`s Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -302,7 +303,7 @@
             
             
               
-                Hexo的奇淫技巧第三发：添加背景以及网站图标设置
+                printf函数实现
               
             
           </h1>
@@ -314,8 +315,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-16T16:06:23+08:00" content="2016-08-16">
-              2016-08-16
+            <time itemprop="dateCreated" datetime="2016-09-06T20:16:54+08:00" content="2016-09-06">
+              2016-09-06
             </time>
           </span>
 
@@ -344,8 +345,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/16/hexoskillthree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/16/hexoskillthree/" itemprop="commentsCount"></span>
+                <a href="/2016/09/06/printf函数实现/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/printf函数实现/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -355,7 +356,7 @@
 
           
           
-             <span id="/2016/08/16/hexoskillthree/" class="leancloud_visitors" data-flag-title="Hexo的奇淫技巧第三发：添加背景以及网站图标设置">
+             <span id="/2016/09/06/printf函数实现/" class="leancloud_visitors" data-flag-title="printf函数实现">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -377,64 +378,93 @@
       
 
       
-        <p><img src="http://i4.buimg.com/567571/aecc6833cfb98a61.png" alt=""></p>
+        <p><img src="http://i4.buimg.com/567571/eae0cc18aa7647f4.png" alt=""></p>
 <a id="more"></a>
-<p>闲来无事总想捣鼓捣鼓自己的这个小博客..的确是闲的蛋疼啊 ︿(￣︶￣)︿</p>
-<p>先赠送给大家一个小技巧吧！</p>
-<hr>
-<p>我总是感觉显示文章摘要的时候，如果显示的全是文字总是感觉很<code>low</code>，所以，就像这篇文章一样你们进来的时候看到的效果一样，是不是瞬间感觉B格满满的呢:-D</p>
-<p>对于<code>NexT</code>主题来讲，大家可以设置默认文章截取长度作为文章摘要参考：<a href="http://theme-next.iissnan.com/faqs.html" target="_blank" rel="external">NexT官方文档</a></p>
-<p>但是还是建议大家使用<code>&lt;!-- more --&gt;</code>标签自己选择性截取比较有代表性。</p>
-<p>文章摘要大图形式显示我就是使用的<code>&lt;!-- more --&gt;</code>标签，大家一定还会说，每次写文章去找一张图，我的尴尬症都要犯了==那懒人的福利又来了</p>
-<p><code>&lt;img src=&quot;https://source.unsplash.com/random/1600x900&quot;&gt;</code></p>
-<p>大家只需要将这个代码贴到<code>&lt;!-- more --&gt;</code>标签的前面就可以了，是不是很简单啊！</p>
-<p><code>unsplash</code>可以随意生成绝美大图作为文章封面，瞬间B格满满滴–</p>
-<p>滴滴滴，学长卡快上车–<code>unsplash</code><a href="https://source.unsplash.com/" target="_blank" rel="external">官网</a></p>
-<hr>
-<h4 id="添加网站背景"><a href="#添加网站背景" class="headerlink" title="添加网站背景"></a>添加网站背景</h4><p><code>Hexo NexT</code>的确留白很多，但是总是感觉空空荡荡的，话说一开始我的确是因为喜欢他这种简洁美才选择它的不是嘛！!<code>wtf</code>我真是一个花心的男纸==</p>
-<p>我现在的确也还是很喜欢它这种简洁美，但是我还是想给它加上点色彩，所以就添加点背景试试咯。</p>
-<ol>
-<li><p>首先先找到自己喜欢的一张背景图片是关键、、我可是找了好久才找到一张自己喜欢的。如果各位看官喜欢我的背景的话，小弟就把它送给你们把！！拿去收好不送:-D(<a href="http://i4.buimg.com/567571/85118244e0cdca9b.png" target="_blank" rel="external">黑白齿轮</a>)</p>
-</li>
-<li><p>将自己的网站背景图片置于<code>Hexo/themes/next/source/images</code>下</p>
-</li>
-<li><p>修改以下文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Hexo/themes/next/source/css/_schemes/Pisces/index.styl</div><div class="line">1 line: modify background label</div><div class="line">body &#123; background:url(/images/background.png);&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>完成任务:-D</strong></p>
-<p>效果图就跟我的博客长得一样咯 ！</p>
-<h4 id="设置网站图标"><a href="#设置网站图标" class="headerlink" title="设置网站图标"></a>设置网站图标</h4><p>设置网站图标也是首先找到自己喜欢的网站图标，这个问题大家一定又是炒鸡纠结的啊哈哈–莫怨我仰天长笑 –因为我就是这么纠结的银/(ㄒoㄒ)/~~</p>
-<ul>
-<li>大家可以选择自己制作，推荐有<code>PS</code>功底的银尝试</li>
-<li>选择制作好的，想我们这种懒蛋只有这个路数了。接住我的<a href="http://www.easyicon.net/" target="_blank" rel="external">天马流星拳</a>。大家可以在里面尽情的选择，在自由的大海里面徜徉辣-</li>
-</ul>
-<p>选择完成之后，大家只需要将这个<code>ico</code>文件放在<code>Hexo/source</code>文件夹下面即可</p>
-<p>大家一定会问就这么简单！！！</p>
-<p><del>柯南新一说：真相永远只有一个！！</del></p>
+<p>同样也是操作系统的课堂上面，老师说让写一下如何实现<code>printf</code>函数。所以想了解一下<code>printf</code>函数的实现原理。首先，在<code>The C Programming Language</code>第7章7.3小节：变长参数表中，作者以实现<code>printf</code>的一个最简单版本为例，介绍了如何以可移植的方式编写可处理变长参数表的函数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdarg.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">minprintf</span><span class="params">(<span class="keyword">char</span> *fmt,...)</span></span>&#123;</div><div class="line">va_list ap;</div><div class="line"><span class="keyword">char</span> *p,*sval;</div><div class="line"><span class="keyword">int</span> ival;</div><div class="line"><span class="keyword">double</span> dval;</div><div class="line"></div><div class="line">va_start(ap,fmt);</div><div class="line"><span class="keyword">for</span>(p=fmt;*p;p++)&#123;</div><div class="line">        <span class="keyword">if</span>(*p != <span class="string">'%'</span>)&#123;</div><div class="line">            <span class="built_in">putchar</span>(*p);</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">switch</span>(*++p)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'d'</span>:</div><div class="line">        ival = va_arg(ap,<span class="keyword">int</span>);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,ival);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'f'</span>:</div><div class="line">        dval = va_arg(ap,<span class="keyword">double</span>);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%f"</span>,dval);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'s'</span>:</div><div class="line">        <span class="keyword">for</span>(sval = va_arg(ap,<span class="keyword">char</span> *);*sval;sval++)</div><div class="line">            <span class="built_in">putchar</span>(*sval);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">        <span class="built_in">putchar</span>(*p);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    va_end(ap);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>由于重点在于如何处理参数，所以<code>minprintf</code>重点在于处理字符串和参数。</p>
+<p>通过查询<code>Linux</code>  <code>C</code> <code>API</code>参考手册可以得知：</p>
+<p><code>printf</code>：格式化输出数据</p>
+<p>表头文件：<code>#include&lt;stdio.h&gt;</code></p>
+<p>定义函数：<code>int printf(const char *format,...);</code></p>
+<p>省略号表示参数表中参数的数量和类型都是可变的。省略号只能出现在参数表的尾部。因为<code>minprintf</code>函数不需要像<code>printf</code>函数一样返回实际输出的字符数。因此，我们将它声明为以下形式：</p>
+<p><code>void minprintf(const char *format,...);</code></p>
+<p>编写<code>minprintf</code>函数的关键在于如何处理一个甚至连名字都不知道的参数表。</p>
+<p>可喜的是，标准头文件<code>&lt;stdarg.h&gt;</code>中包含一组宏定义，C语言用宏来处理这些可变的参数。它们定义了如何遍历参数列表。这些宏看起来炒鸡复杂。</p>
+<p>其原理：根据参数入栈的特点从最靠近第一个可变参数的固定参数开始，依次获取每个可变参数的地址。</p>
+<p><a href="http://blog.csdn.net/holandstone/article/details/6947119" target="_blank" rel="external">stdarg.h详解</a>                     </p>
+<p>本文概要总结其实现原理：</p>
+<p>下面以函数<code>fun()</code>为例进行讲解：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span></div><div class="line"> &#123;</div><div class="line">       <span class="keyword">int</span> d;</div><div class="line">       ...</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>正常情况下C语言的函数参数的入栈规则为<code>_stdcall</code>,它是由右至左的，即函数的最右端的参数最先入栈。即入栈的顺序为：<code>c-b-a-d</code></p>
+<p>其栈结构如下：</p>
+<p>​    <code>0x1ffc--&gt;d</code></p>
+<pre><code>`0x2000--&gt;a`
+
+`0x2004--&gt;b`
+
+`0x2008--&gt;c`
+</code></pre><p>对于32位的系统最小的栈单元为<code>sizeof(int)</code>。函数的每个参数都至少占一个栈单元。因此，函数的所有参数都是存储在线性连续的栈空间中的，基于这种存储结构，这样就可以从可变参数函数中必须有的第一个普通参数来寻址后续的所有可变参数的类型及其值。</p>
+<p>对于固定参数列表的函数，我们可以直接通过&amp;a得到a的地址。并且通过函数原型声明得到a的数据类型。</p>
+<p>然而，对于变长参数列表的函数，我们无法采用上述方法。按照C标准可知，</p>
 <blockquote>
-<p>因为在<code>Hexo/themes/next/_config.yml</code>中，<code>NexT</code>主题已经提前为我们设置了网站图标<code>line 6</code>；</p>
+<p>支持变长参数的函数在函数原型声明中，必须有至少一个最左固定参数。</p>
 </blockquote>
-<p>对于其他主题的用户而言：<code>Hexo</code><a href="https://hexo.io/zh-cn/docs/helpers.html#favicon_tag" target="_blank" rel="external">官方文档</a>中有相应的指导：</p>
-<blockquote>
-<p>将<code>&lt;%- favicon_tag(path) %&gt;</code> 代码置于对应主题配置文件中即可。</p>
-</blockquote>
-<p>请其他主题用户自行尝试，本博主也木有试过哦==</p>
-<p>问题相关解答：</p>
+<p>我们便可以通过其中的固定参数的地址。但是无论函数到底有多少个参数、以及每个参数到底是什么类型的，它们都和固定参数的传参过程是一致的，都是栈操作。如此，我们就可以推导出其他变长参数的位置。</p>
+<p>因为栈的延伸方向为从高地址到低地址，栈底占据着最高的内存地址，先入栈的参数，地理位置最高。所以对于可变参数列表的函数 <code>void var_args_func(const char * fmt, ... )</code> 来说可以得到结论：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">first_vararg.addr = fmt.addr + x_sizeof(fmt); <span class="comment">// x_sizeof !=sizeof</span></div><div class="line"></div><div class="line">second_vararg.addr = first_vararg.addr + x_sizeof(first_vararg);</div><div class="line"></div><div class="line">......</div></pre></td></tr></table></figure>
+<p>上述结论得出的如此的简单粗暴。根据这一结论实现以下算法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdarg.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">var_args_func</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * fmt, ...)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span>    *ap;</div><div class="line"></div><div class="line">    ap = ((<span class="keyword">char</span>*)&amp;fmt) + <span class="keyword">sizeof</span>(fmt);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *(<span class="keyword">int</span>*)ap);</div><div class="line"></div><div class="line">    ap =  ap + <span class="keyword">sizeof</span>(<span class="keyword">int</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *(<span class="keyword">int</span>*)ap);</div><div class="line"></div><div class="line">    ap =  ap + <span class="keyword">sizeof</span>(<span class="keyword">int</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, *((<span class="keyword">char</span>**)ap));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    var_args_func(<span class="string">"%d %d %s\n"</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">"hello world"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>期望结果如图所示：</p>
+<p><img src="http://i4.buimg.com/567571/c308e26957b9a8b6.png" alt=""></p>
+<p>上图是我在<code>Code::Blocks</code>编译器的运行结果</p>
+<p><a href="http://c.biancheng.net/cpp/html/1117.html" target="_blank" rel="external">VC6.0中文版下载（支持XP、Win7、Win8、Win10）</a></p>
+<p><a href="https://sourceforge.net/projects/codeblocks/files/Binaries/16.01/Windows/codeblocks-16.01mingw_fortran-setup.exe/download" target="_blank" rel="external">Code::Blocks下载</a></p>
+<p>通过上述讲解我们已经可以明白C语言是如何处理可变参数列表的了。接下来我们就来探讨一下如何实现简单的可变参数的C语言函数。</p>
+<p>想要了解可变参数列表函数的实现首先需要分析的是<code>stdarg.h</code></p>
+<p><code>stdarg.h</code>源代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">#define __va_rounded_size(TYPE)  \</div><div class="line">  (((sizeof (TYPE) + sizeof (int) - 1) / sizeof (int)) * sizeof (int))</div><div class="line"></div><div class="line">#if __GNUC__ &lt; 2</div><div class="line"></div><div class="line">#ifndef __sparc__</div><div class="line">#define va_start(AP, LASTARG)                                           \</div><div class="line"> (AP = ((char *) &amp;(LASTARG) + __va_rounded_size (LASTARG)))</div><div class="line">#else</div><div class="line">#define va_start(AP, LASTARG)                                           \</div><div class="line"> (__builtin_saveregs (),                                                \</div><div class="line">  AP = ((char *) &amp;(LASTARG) + __va_rounded_size (LASTARG)))</div><div class="line">#endif</div><div class="line"></div><div class="line">void va_end (va_list);          /* Defined in gnulib */</div><div class="line">#define va_end(AP)</div><div class="line"></div><div class="line">#define va_arg(AP, TYPE)                                                \</div><div class="line"> (AP += __va_rounded_size (TYPE),                                       \</div><div class="line">  *((TYPE *) (AP - __va_rounded_size (TYPE))))</div><div class="line"></div><div class="line">#else    /* __GNUC__ &gt;= 2 */</div><div class="line"></div><div class="line">#ifndef __sparc__</div><div class="line">#define va_start(AP, LASTARG)                         \</div><div class="line"> (AP = ((char *) __builtin_next_arg ()))</div><div class="line">#else</div><div class="line">#define va_start(AP, LASTARG)                    \</div><div class="line">  (__builtin_saveregs (), AP = ((char *) __builtin_next_arg ()))</div><div class="line">#endif</div><div class="line"></div><div class="line">void va_end (va_list);        /* Defined in libgcc.a */</div><div class="line">#define va_end(AP)</div><div class="line"></div><div class="line">#define va_arg(AP, TYPE)                        \</div><div class="line"> (AP = ((char *) (AP)) += __va_rounded_size (TYPE),            \</div><div class="line">  *((TYPE *) ((char *) (AP) - __va_rounded_size (TYPE))))</div><div class="line"></div><div class="line">#endif    /* __GNUC__ &gt;= 2 */</div><div class="line"></div><div class="line">#else    /* not __GNUC__ */</div><div class="line"></div><div class="line"></div><div class="line">typedef char *va_list;</div><div class="line"></div><div class="line">#define __vasz(x)        ((sizeof(x)+sizeof(int)-1) &amp; ~(sizeof(int) -1))</div><div class="line"></div><div class="line">#define va_start(ap, parmN)    ((ap) = (va_list)&amp;parmN + __vasz(parmN))</div><div class="line">#define va_arg(ap, type)      \</div><div class="line">  (*((type *)((va_list)((ap) = (void *)((va_list)(ap) + __vasz(type))) \</div><div class="line">                            - __vasz(type))))</div><div class="line">#define va_end(ap)</div><div class="line"></div><div class="line"></div><div class="line">#endif /* __GNUC__ */</div><div class="line"></div><div class="line">#endif /* _STDARG_H */</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
-<th>问题描述</th>
-<th>解答</th>
+<th>行号</th>
+<th>解析</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>设置完网站图标之后不显示</td>
-<td>请更换浏览器尝试</td>
+<td>8</td>
+<td>使用<code>typedef</code>进行了一个声明：<code>typedef char *va_list;</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>定义了用于编译器的内存对齐宏</td>
+</tr>
+<tr>
+<td>17</td>
+<td>#<code>if __GNUC__ &lt; 2</code>，进行<code>GCC</code>的版本判断，看当前版本是否大于2</td>
+</tr>
+<tr>
+<td>20</td>
+<td>使得ap指向函数中的第一个无名参数的首地址的宏</td>
+</tr>
+<tr>
+<td>31</td>
+<td><code>va_arg</code>宏使得<code>ap</code>指向下一个参数，已经处理了内存对齐，其中参数的类型为<code>TYPE</code></td>
+</tr>
+<tr>
+<td>48</td>
+<td><code>va_end</code> 与<code>va_start</code>成对使用.</td>
 </tr>
 </tbody>
 </table>
+<p>由此可知，如果想要写一个简单的可变参数列表的函数需要用到以下宏：</p>
+<p><code>void va_start( va_list arg_ptr, prev_param );</code><br><code>type va_arg( va_list arg_ptr, type );</code><br><code>void va_end( va_list arg_ptr );</code></p>
+<p>通过开篇给出的例子可知使用可变参数的步骤应如下：</p>
+<p>（1）首先在函数中定义一个<code>va_list</code> 变量</p>
+<p>（2）然后使用<code>va_start</code>初始化该变量，该宏返回的结果是第一个无名参数的首地址（该宏的第二个参数为可变参数列表中的固定参数）</p>
+<p>（3）使用<code>va_arg</code>依次获取可变参数列表中的可变参数。（该宏的第二个参数为想要返回参数的参数类型）</p>
+<p>（4）最后使用<code>va_end</code>结束参数获取</p>
 <hr>
 <p><strong>版权声明</strong></p>
 <p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
@@ -442,7 +472,7 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/16/hexoskillthree/">http://www.steven7.top/2016/08/16/hexoskillthree/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/09/06/printf函数实现/">http://www.steven7.top/2016/09/06/printf函数实现/</a></p>
 
       
     </div>
@@ -481,13 +511,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+            <a href="/tags/函数实现/" rel="tag">#函数实现</a>
           
-            <a href="/tags/技巧/" rel="tag">#技巧</a>
-          
-            <a href="/tags/网站背景/" rel="tag">#网站背景</a>
-          
-            <a href="/tags/网站图标/" rel="tag">#网站图标</a>
+            <a href="/tags/printf/" rel="tag">#printf</a>
           
         </div>
       
@@ -496,17 +522,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/15/Hexo-Seo-2/" rel="next" title="本博客的SEO优化（2）-让谷歌和百度尽快收录你">
-                <i class="fa fa-chevron-left"></i> 本博客的SEO优化（2）-让谷歌和百度尽快收录你
+              <a href="/2016/09/06/atoi-algorithm-implementation/" rel="next" title="atoi函数实现">
+                <i class="fa fa-chevron-left"></i> atoi函数实现
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/19/peoblem-about-git/" rel="prev" title="GitHubHelp-SSH相关问题Error:Permission-denied(publickey)">
-                GitHubHelp-SSH相关问题Error:Permission-denied(publickey) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -521,10 +543,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/08/16/hexoskillthree/"
-     data-title="Hexo的奇淫技巧第三发：添加背景以及网站图标设置"
+        <div class="ds-share flat" data-thread-key="2016/09/06/printf函数实现/"
+     data-title="printf函数实现"
      data-content=""
-     data-url="http://www.steven7.top/2016/08/16/hexoskillthree/">
+     data-url="http://www.steven7.top/2016/09/06/printf函数实现/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -555,8 +577,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/16/hexoskillthree/"
-           data-title="Hexo的奇淫技巧第三发：添加背景以及网站图标设置" data-url="http://www.steven7.top/2016/08/16/hexoskillthree/">
+      <div class="ds-thread" data-thread-key="2016/09/06/printf函数实现/"
+           data-title="printf函数实现" data-url="http://www.steven7.top/2016/09/06/printf函数实现/">
       </div>
     
   </div>
@@ -699,7 +721,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加网站背景"><span class="nav-number">1.</span> <span class="nav-text">添加网站背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置网站图标"><span class="nav-number">2.</span> <span class="nav-text">设置网站图标</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
