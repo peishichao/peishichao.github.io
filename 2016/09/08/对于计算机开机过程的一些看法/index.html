@@ -82,7 +82,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="函数实现,printf," />
+  <meta name="keywords" content="操作系统,计算机,开机过程,看法," />
 
 
 
@@ -99,16 +99,16 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="printf函数实现">
-<meta property="og:url" content="http://www.steven7.top/2016/09/06/printf函数实现/index.html">
+<meta property="og:title" content="对于计算机开机过程的一些看法">
+<meta property="og:url" content="http://www.steven7.top/2016/09/08/对于计算机开机过程的一些看法/index.html">
 <meta property="og:site_name" content="Steven`s Notes">
-<meta property="og:image" content="http://i4.buimg.com/567571/eae0cc18aa7647f4.png">
-<meta property="og:image" content="http://i4.buimg.com/567571/c308e26957b9a8b6.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/76e4a9900a7717ae.png">
+<meta property="og:image" content="http://i4.buimg.com/567571/47976157fd6ff294.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/473944d51f13444e.png">
-<meta property="og:updated_time" content="2016-09-07T16:51:39.020Z">
+<meta property="og:updated_time" content="2016-09-08T15:36:34.041Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="printf函数实现">
-<meta name="twitter:image" content="http://i4.buimg.com/567571/eae0cc18aa7647f4.png">
+<meta name="twitter:title" content="对于计算机开机过程的一些看法">
+<meta name="twitter:image" content="http://i1.piimg.com/567571/76e4a9900a7717ae.png">
 
 
 
@@ -129,9 +129,9 @@
 
 
 
-  <link rel="canonical" href="http://www.steven7.top/2016/09/06/printf函数实现/"/>
+  <link rel="canonical" href="http://www.steven7.top/2016/09/08/对于计算机开机过程的一些看法/"/>
 
-  <title> printf函数实现 | Steven`s Notes </title>
+  <title> 对于计算机开机过程的一些看法 | Steven`s Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +303,7 @@
             
             
               
-                printf函数实现
+                对于计算机开机过程的一些看法
               
             
           </h1>
@@ -315,8 +315,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-06T20:16:54+08:00" content="2016-09-06">
-              2016-09-06
+            <time itemprop="dateCreated" datetime="2016-09-08T19:25:00+08:00" content="2016-09-08">
+              2016-09-08
             </time>
           </span>
 
@@ -345,8 +345,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/06/printf函数实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/printf函数实现/" itemprop="commentsCount"></span>
+                <a href="/2016/09/08/对于计算机开机过程的一些看法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/对于计算机开机过程的一些看法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -356,7 +356,7 @@
 
           
           
-             <span id="/2016/09/06/printf函数实现/" class="leancloud_visitors" data-flag-title="printf函数实现">
+             <span id="/2016/09/08/对于计算机开机过程的一些看法/" class="leancloud_visitors" data-flag-title="对于计算机开机过程的一些看法">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -378,93 +378,76 @@
       
 
       
-        <p><img src="http://i4.buimg.com/567571/eae0cc18aa7647f4.png" alt=""></p>
+        <p><img src="http://i1.piimg.com/567571/76e4a9900a7717ae.png" alt=""></p>
 <a id="more"></a>
-<p>同样也是操作系统的课堂上面，老师说让写一下如何实现<code>printf</code>函数。所以想了解一下<code>printf</code>函数的实现原理。首先，在<code>The C Programming Language</code>第7章7.3小节：变长参数表中，作者以实现<code>printf</code>的一个最简单版本为例，介绍了如何以可移植的方式编写可处理变长参数表的函数。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdarg.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">minprintf</span><span class="params">(<span class="keyword">char</span> *fmt,...)</span></span>&#123;</div><div class="line">va_list ap;</div><div class="line"><span class="keyword">char</span> *p,*sval;</div><div class="line"><span class="keyword">int</span> ival;</div><div class="line"><span class="keyword">double</span> dval;</div><div class="line"></div><div class="line">va_start(ap,fmt);</div><div class="line"><span class="keyword">for</span>(p=fmt;*p;p++)&#123;</div><div class="line">        <span class="keyword">if</span>(*p != <span class="string">'%'</span>)&#123;</div><div class="line">            <span class="built_in">putchar</span>(*p);</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">switch</span>(*++p)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'d'</span>:</div><div class="line">        ival = va_arg(ap,<span class="keyword">int</span>);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,ival);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'f'</span>:</div><div class="line">        dval = va_arg(ap,<span class="keyword">double</span>);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%f"</span>,dval);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'s'</span>:</div><div class="line">        <span class="keyword">for</span>(sval = va_arg(ap,<span class="keyword">char</span> *);*sval;sval++)</div><div class="line">            <span class="built_in">putchar</span>(*sval);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">        <span class="built_in">putchar</span>(*p);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    va_end(ap);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>由于重点在于如何处理参数，所以<code>minprintf</code>重点在于处理字符串和参数。</p>
-<p>通过查询<code>Linux</code>  <code>C</code> <code>API</code>参考手册可以得知：</p>
-<p><code>printf</code>：格式化输出数据</p>
-<p>表头文件：<code>#include&lt;stdio.h&gt;</code></p>
-<p>定义函数：<code>int printf(const char *format,...);</code></p>
-<p>省略号表示参数表中参数的数量和类型都是可变的。省略号只能出现在参数表的尾部。因为<code>minprintf</code>函数不需要像<code>printf</code>函数一样返回实际输出的字符数。因此，我们将它声明为以下形式：</p>
-<p><code>void minprintf(const char *format,...);</code></p>
-<p>编写<code>minprintf</code>函数的关键在于如何处理一个甚至连名字都不知道的参数表。</p>
-<p>可喜的是，标准头文件<code>&lt;stdarg.h&gt;</code>中包含一组宏定义，C语言用宏来处理这些可变的参数。它们定义了如何遍历参数列表。这些宏看起来炒鸡复杂。</p>
-<p>其原理：根据参数入栈的特点从最靠近第一个可变参数的固定参数开始，依次获取每个可变参数的地址。</p>
-<p><a href="http://blog.csdn.net/holandstone/article/details/6947119" target="_blank" rel="external">stdarg.h详解</a>                     </p>
-<p>本文概要总结其实现原理：</p>
-<p>下面以函数<code>fun()</code>为例进行讲解：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span></div><div class="line"> &#123;</div><div class="line">       <span class="keyword">int</span> d;</div><div class="line">       ...</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>正常情况下C语言的函数参数的入栈规则为<code>_stdcall</code>,它是由右至左的，即函数的最右端的参数最先入栈。即入栈的顺序为：<code>c-b-a-d</code></p>
-<p>其栈结构如下：</p>
-<p>​    <code>0x1ffc--&gt;d</code></p>
-<pre><code>`0x2000--&gt;a`
-
-`0x2004--&gt;b`
-
-`0x2008--&gt;c`
-</code></pre><p>对于32位的系统最小的栈单元为<code>sizeof(int)</code>。函数的每个参数都至少占一个栈单元。因此，函数的所有参数都是存储在线性连续的栈空间中的，基于这种存储结构，这样就可以从可变参数函数中必须有的第一个普通参数来寻址后续的所有可变参数的类型及其值。</p>
-<p>对于固定参数列表的函数，我们可以直接通过&amp;a得到a的地址。并且通过函数原型声明得到a的数据类型。</p>
-<p>然而，对于变长参数列表的函数，我们无法采用上述方法。按照C标准可知，</p>
+<p>对于大多数学计算机或者是非科班出身的童鞋，大多对于计算机的开机过程大致只了解到按下计算机电源开关的程度。我们对于计算机到底是如何开启的，如何<code>boot</code>的，了解的并不是很多。今天我就这些问题做一些小小的探讨。说的不对或者不好的地方尽情拍砖…</p>
+<h4 id="系统引导"><a href="#系统引导" class="headerlink" title="系统引导"></a>系统引导</h4><p>其实对于操作系统我们有太多的未知。只能说前人实在是太腻害了。我们从按下计算机开关的那一刻开始慢慢的捋一捋思绪。</p>
+<p>首先借鉴<a href="http://www.ruanyifeng.com/blog/2013/02/booting.html" target="_blank" rel="external">阮一峰的网络日志</a>中的一个问题：<code>boot</code>怎么理解？</p>
+<p><code>boot</code>原本为靴子的意思。启动和靴子的关系是什么呐…这就扯到一门谚语了：</p>
 <blockquote>
-<p>支持变长参数的函数在函数原型声明中，必须有至少一个最左固定参数。</p>
+<p><code>&quot;pull oneself up by one&#39;s bootstraps&quot;</code></p>
 </blockquote>
-<p>我们便可以通过其中的固定参数的地址。但是无论函数到底有多少个参数、以及每个参数到底是什么类型的，它们都和固定参数的传参过程是一致的，都是栈操作。如此，我们就可以推导出其他变长参数的位置。</p>
-<p>因为栈的延伸方向为从高地址到低地址，栈底占据着最高的内存地址，先入栈的参数，地理位置最高。所以对于可变参数列表的函数 <code>void var_args_func(const char * fmt, ... )</code> 来说可以得到结论：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">first_vararg.addr = fmt.addr + x_sizeof(fmt); <span class="comment">// x_sizeof !=sizeof</span></div><div class="line"></div><div class="line">second_vararg.addr = first_vararg.addr + x_sizeof(first_vararg);</div><div class="line"></div><div class="line">......</div></pre></td></tr></table></figure>
-<p>上述结论得出的如此的简单粗暴。根据这一结论实现以下算法：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdarg.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">var_args_func</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * fmt, ...)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span>    *ap;</div><div class="line"></div><div class="line">    ap = ((<span class="keyword">char</span>*)&amp;fmt) + <span class="keyword">sizeof</span>(fmt);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *(<span class="keyword">int</span>*)ap);</div><div class="line"></div><div class="line">    ap =  ap + <span class="keyword">sizeof</span>(<span class="keyword">int</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *(<span class="keyword">int</span>*)ap);</div><div class="line"></div><div class="line">    ap =  ap + <span class="keyword">sizeof</span>(<span class="keyword">int</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, *((<span class="keyword">char</span>**)ap));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    var_args_func(<span class="string">"%d %d %s\n"</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">"hello world"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>期望结果如图所示：</p>
-<p><img src="http://i4.buimg.com/567571/c308e26957b9a8b6.png" alt=""></p>
-<p>上图是我在<code>Code::Blocks</code>编译器的运行结果</p>
-<p><a href="http://c.biancheng.net/cpp/html/1117.html" target="_blank" rel="external">VC6.0中文版下载（支持XP、Win7、Win8、Win10）</a></p>
-<p><a href="https://sourceforge.net/projects/codeblocks/files/Binaries/16.01/Windows/codeblocks-16.01mingw_fortran-setup.exe/download" target="_blank" rel="external">Code::Blocks下载</a></p>
-<p>通过上述讲解我们已经可以明白C语言是如何处理可变参数列表的了。接下来我们就来探讨一下如何实现简单的可变参数的C语言函数。</p>
-<p>想要了解可变参数列表函数的实现首先需要分析的是<code>stdarg.h</code></p>
-<p><code>stdarg.h</code>源代码</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">#define __va_rounded_size(TYPE)  \</div><div class="line">  (((sizeof (TYPE) + sizeof (int) - 1) / sizeof (int)) * sizeof (int))</div><div class="line"></div><div class="line">#if __GNUC__ &lt; 2</div><div class="line"></div><div class="line">#ifndef __sparc__</div><div class="line">#define va_start(AP, LASTARG)                                           \</div><div class="line"> (AP = ((char *) &amp;(LASTARG) + __va_rounded_size (LASTARG)))</div><div class="line">#else</div><div class="line">#define va_start(AP, LASTARG)                                           \</div><div class="line"> (__builtin_saveregs (),                                                \</div><div class="line">  AP = ((char *) &amp;(LASTARG) + __va_rounded_size (LASTARG)))</div><div class="line">#endif</div><div class="line"></div><div class="line">void va_end (va_list);          /* Defined in gnulib */</div><div class="line">#define va_end(AP)</div><div class="line"></div><div class="line">#define va_arg(AP, TYPE)                                                \</div><div class="line"> (AP += __va_rounded_size (TYPE),                                       \</div><div class="line">  *((TYPE *) (AP - __va_rounded_size (TYPE))))</div><div class="line"></div><div class="line">#else    /* __GNUC__ &gt;= 2 */</div><div class="line"></div><div class="line">#ifndef __sparc__</div><div class="line">#define va_start(AP, LASTARG)                         \</div><div class="line"> (AP = ((char *) __builtin_next_arg ()))</div><div class="line">#else</div><div class="line">#define va_start(AP, LASTARG)                    \</div><div class="line">  (__builtin_saveregs (), AP = ((char *) __builtin_next_arg ()))</div><div class="line">#endif</div><div class="line"></div><div class="line">void va_end (va_list);        /* Defined in libgcc.a */</div><div class="line">#define va_end(AP)</div><div class="line"></div><div class="line">#define va_arg(AP, TYPE)                        \</div><div class="line"> (AP = ((char *) (AP)) += __va_rounded_size (TYPE),            \</div><div class="line">  *((TYPE *) ((char *) (AP) - __va_rounded_size (TYPE))))</div><div class="line"></div><div class="line">#endif    /* __GNUC__ &gt;= 2 */</div><div class="line"></div><div class="line">#else    /* not __GNUC__ */</div><div class="line"></div><div class="line"></div><div class="line">typedef char *va_list;</div><div class="line"></div><div class="line">#define __vasz(x)        ((sizeof(x)+sizeof(int)-1) &amp; ~(sizeof(int) -1))</div><div class="line"></div><div class="line">#define va_start(ap, parmN)    ((ap) = (va_list)&amp;parmN + __vasz(parmN))</div><div class="line">#define va_arg(ap, type)      \</div><div class="line">  (*((type *)((va_list)((ap) = (void *)((va_list)(ap) + __vasz(type))) \</div><div class="line">                            - __vasz(type))))</div><div class="line">#define va_end(ap)</div><div class="line"></div><div class="line"></div><div class="line">#endif /* __GNUC__ */</div><div class="line"></div><div class="line">#endif /* _STDARG_H */</div></pre></td></tr></table></figure>
+<p>中文解释为：拽着鞋带把自己提起来。有点常识的童鞋都知道这是不可能的。这和计算机的启动过程其实有相似的地方：必须首先运行程序才可以启动计算机，但是计算机不启动就无法运行程序。好矛盾..好纠结是不是…</p>
+<p>上述烧脑问题解答：操作系统是由进程叠加而成的。然而进程是由进程创建而来。进程由进程创建而来..而来..来…所以万事必有一个根才可以。否则就陷入了无限循环的哲学问题了。所以，对于进程来说，规定了进程0为所有进程的上帝。进程0创建了进程1，进而一而再再而三的创建其他进程。所以，对于计算机启动而言也一定有相同的体系。首先我们必须要硬性规定一个起始程序。目前，我们通过探讨已经知道必须首先启动一个程序了。然而我们怎么启动这个程序那？想要启动一个程序，首先必须将这个程序装入内存吧…我们怎么才能把这个起始程序装入内存呐..这就回到了问题的关键–系统引导。</p>
+<p>我们把：从用户按下计算机电源开关开始，到操作系统运行起来这段时间被称为“系统引导”。由上文可知，其实引导过程对于操作系统来说是至关重要的一环。因为木有引导，操作系统无法运行。</p>
+<p>那么问题又来了：当我们按下计算机电源开关之后，到底是谁在工作那？这里我们又要贯穿一下计算机硬件相关的知识了==（<a href="http://www.cnblogs.com/BoyXiao/archive/2010/11/20/1882716.html" target="_blank" rel="external">寄存器相关</a>）。</p>
+<p><strong>CS 寄存器 和 IP 寄存器：</strong></p>
+<p>CS:IP 两个寄存器指示了 CPU 当前将要读取的指令的地址，其中  CS  为代码段寄存器，而   IP  为指令指针寄存器 。</p>
+<p>那么问题又来了：什么叫做指示了 CPU 当前将要读取的指令呢？在 8086  CPU 中，为什么  CPU  会自动的执行指令呢？</p>
+<p>这些指令肯定是存放在内存中的，但是  CPU  怎么知道这些指令存放在内存的那个位置呢？</p>
+<p>比如，我有下面的两条指令要执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MOV AX,1234H</div><div class="line">MOV BX,AX</div></pre></td></tr></table></figure>
+<p>而假设这两条指令在内存中存放为：</p>
+<p><img src="http://i4.buimg.com/567571/47976157fd6ff294.png" alt=""></p>
+<p>很显然， 1000H:0000H 指向的是  MOV  AX，1234H  的首地址，如果 CPU 要读取到我的指令的话，很显然，必须要知道地址  1000H:0000H ，然后  CPU  就可以根据这个首地址，将汇编指令<strong>MOV  AX，1234H</strong>  所对应的机器码读入到  CPU  的指令寄存器中，最后便可以在  CPU  中进行处理了。</p>
+<p>但关键是   CPU  如何知道我的  1000H:0000H  这个首地址？其实这就需要使用到  CS:IP  这个寄存器组了 。当我们运行一个可执行文件时，很明显，我们需要另外一个程序来将这个可执行文件加载到内存当中，关于这个加载可执行文件的程序，我们在这里不管他，点一下即可，一般是通过操作系统的外壳程序（也就是传说中的  Shell  程序），Shell  将可执行文件加载到内存中以后，就会设置  CPU  中的两个寄存器，即设置  CS:IP  两个寄存器指向可执行文件的起始地址，此后  CPU  便从这个起始地址开始读取内存中的指令，并且执行，比如我们在写汇编程序时，通常会使用  START  标记，其实这个标记就是用来标记起始地址的，当将一个汇编程序编译，连接成可执行文件以后，再通过操作系统的  Shell  程序将可执行文件加载到内存中以后，这个  START  所标记处的地址就是整个可执行文件的起始地址了 。</p>
+<p><strong>也就是说，当一个可执行文件加载到内存中以后，CS:IP  两个寄存器便指向了这个可执行文件的起始地址，然后CPU  就可以从这个起始地址开始往下读取指令，当读取完指令后，CS:IP  将会自动的改变，基本上是改变  IP ，从而指向下一条要读取的指令，这样就可以执行这个可执行文件了 。</strong></p>
+<p><strong>最后再对  CS:IP  总结一下：</strong></p>
+<ol>
+<li>你想让  CPU  执行哪行指令，你就让  CS:IP  指向保存有指令的那块内存即可。</li>
+<li>任何时候，CS:IP  指向的地址中的内容都是  CPU  当前执行的指令。</li>
+</ol>
+<p>通过上述了解CS 和 IP 寄存器之后，我们就可以探索下面的问题了。</p>
+<p>在用户按下计算机电源开关之后，CPU会自动的将其CS寄存器设定为0xFFFF，将其IP寄存器设定为0x0000。由于CS:IP指出了下一条指令的地址，因此CPU会跳到0xFFFF:0x0000处进行执行。为什么是这个地址而不是其它地址呢？这其实是一个很巧妙的设计。</p>
+<p>我们接下来以8086为例，8086是16位的CPU，但是却有20根地址线。也就是说可以寻址2的20次幂=1M内存空间。（2的10次幂=1K，2的32次幂=4G，2的30次幂=1G）这段内存空间由RAM、ROM组成。ROM是随机自读存储器，里面的程序是在计算机出厂的时候直接烧死在里面的。<strong>它保存着计算机最重要的基本输入输出的程序、开机后自检程序和系统自启动程序，它可从CMOS中读写系统设置的具体信息。</strong>其主要功能是为计算机提供最底层的、最直接的硬件设置和控制。被称为BIOS（”Basic Input Output System”-基本输入输出系统）。 不同的硬件厂商这段程序也会随着机型的不同而不同。</p>
+<p>正是因为这个原因：有可能A厂出产的计算机所带的这段程序的大小为1K，而B厂出产的这段程序的大小为2K。</p>
+<p>如果将这段程序放在0x0000处，那么用户写的程序就可能从0x0400处开始也可能从 0x0800处开始，非常不统一。故而，将此段程序放在1M内存的顶部，那么用户写的程序就都可以从0x0000处开始了。</p>
+<p>但将BIOS这段程序放在1M内存的顶部，如果这段程序大小为1K，那么应当从0xFFC00开始放。如果这段程序的大小为2K，那么应当从0xFF800开始放，对于CPU而言，到底是应当从0xFFC00开始执行还是应当从0xFF800开始执行呢？为了解决这个问题，8086规定，CPU均从0xFFFF0处开始执行，而在0xFFFF0处，放一条无条件转移指令JMP。如果A厂的BIOS是从0xFFC00开始放的，那么这条转移指令就跳转到0xFFC00处开始执行。如果B厂的BIOS是从0xFF800开始放的，那么这条转移指令就跳转到0xFF800处开始执行，各个厂家可以跟据自己所生产的BIOS程序的大小，来决定此转移指令具体跳转到的位置。</p>
+<p>　这里有一点需要清楚的是，通常认为，内存编址是连续的，不会出现空洞，其实完全不是这样。比如，假设BIOS的编址是从 0xF0000开始，而RAM，即通常讲的内存编址是从0x00000开始，那么，如果用户只安装了32K内存，那么内存的编址范围就是 0x00000~0x07FFF，那么从0x08000至0xEFFFF处就没有安装内存，这就是一个内存空洞。</p>
+<p>当CPU执行了放在0xFFFF0处的第一条指令后，就跳转到BIOS程序内部去执行了，下面就来看看BIOS都做了些什么。</p>
+<p>BIOS的工作相当简单，主要的工作就是执行主机自检（POST）。</p>
+<p>如果硬件出现问题，主板会发出不同含义的蜂鸣，启动中止。如果没有问题，屏幕就会显示CPU、内存、硬盘灯信息。</p>
+<p>自检完成后，然后查找操作系统存在在哪个磁盘上，将操作系统载入。BIOS需要有一个外部存储设备的排序，排在前面的设备就是优先转交控制权的设备。这种排序叫做“启动顺序”。BIOS在查找各磁盘的操作系统时，主要是查找磁盘上的第一个扇区（0面0磁道1扇区），每个扇区是512字节，如果这是一个引导扇区，那么就将它载入0x7C00的内存地址 上，然后跳转到此地址上执行。如果此不是一个引导扇区，就继续查找下一个磁盘，看其上面是否存在引导扇区。如果所有的磁盘上都不存在引导扇区，则在屏幕上 打印出一条出错信息。（如果这512个字节的最后两个字节是0x55和0xAA，表明这个设备可以用于启动；如果不是，表明设备不能用于启动，控制权于是被转交给”启动顺序”中的下一个设备。）</p>
+<p>这时，计算机的控制权就要转交给硬盘的某个分区了，这里又分成三种情况。</p>
 <table>
 <thead>
 <tr>
-<th>行号</th>
-<th>解析</th>
+<th>情况分类</th>
+<th>情况分析</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>8</td>
-<td>使用<code>typedef</code>进行了一个声明：<code>typedef char *va_list;</code></td>
+<td>卷引导记录</td>
+<td>四个主分区里面，只有一个是激活的。计算机会读取激活分区的第一个扇区，叫做”卷引导记录”。”卷引导记录”的主要作用是，告诉计算机，操作系统在这个分区里的位置。然后，计算机就会加载操作系统了。</td>
 </tr>
 <tr>
-<td>14</td>
-<td>定义了用于编译器的内存对齐宏</td>
+<td>扩展分区和逻辑分区</td>
+<td>计算机先读取扩展分区的第一个扇区，叫做”扩展引导记录”。它里面也包含一张64字节的分区表，但是最多只有两项（也就是两个逻辑分区）。计算机接着读取第二个逻辑分区的第一个扇区，再从里面的分区表中找到第三个逻辑分区的位置，以此类推，直到某个逻辑分区的分区表只包含它自身为止（即只有一个分区项）。因此，扩展分区可以包含无数个逻辑分区。&lt;很少用这种方式&gt;</td>
 </tr>
 <tr>
-<td>17</td>
-<td>#<code>if __GNUC__ &lt; 2</code>，进行<code>GCC</code>的版本判断，看当前版本是否大于2</td>
-</tr>
-<tr>
-<td>20</td>
-<td>使得ap指向函数中的第一个无名参数的首地址的宏</td>
-</tr>
-<tr>
-<td>31</td>
-<td><code>va_arg</code>宏使得<code>ap</code>指向下一个参数，已经处理了内存对齐，其中参数的类型为<code>TYPE</code></td>
-</tr>
-<tr>
-<td>48</td>
-<td><code>va_end</code> 与<code>va_start</code>成对使用.</td>
+<td>启动管理器</td>
+<td>计算机读取”主引导记录”前面446字节的机器码之后，不再把控制权转交给某一个分区，而是运行事先安装的<a href="http://en.wikipedia.org/wiki/Boot_loader#Modern_boot_loaders" target="_blank" rel="external">“启动管理器”</a>（boot loader），由用户选择启动哪一个操作系统。Linux环境中，目前最流行的启动管理器是<a href="http://en.wikipedia.org/wiki/GNU_GRUB" target="_blank" rel="external">Grub</a></td>
 </tr>
 </tbody>
 </table>
-<p>由此可知，如果想要写一个简单的可变参数列表的函数需要用到以下宏：</p>
-<p><code>void va_start( va_list arg_ptr, prev_param );</code><br><code>type va_arg( va_list arg_ptr, type );</code><br><code>void va_end( va_list arg_ptr );</code></p>
-<p>通过开篇给出的例子可知使用可变参数的步骤应如下：</p>
-<p>（1）首先在函数中定义一个<code>va_list</code> 变量</p>
-<p>（2）然后使用<code>va_start</code>初始化该变量，该宏返回的结果是第一个无名参数的首地址（该宏的第二个参数为可变参数列表中的固定参数）</p>
-<p>（3）使用<code>va_arg</code>依次获取可变参数列表中的可变参数。（该宏的第二个参数为想要返回参数的参数类型）</p>
-<p>（4）最后使用<code>va_end</code>结束参数获取</p>
+<p>　引导扇区只有一扇区即512字节大，因此它的主要目的是把操作系统的内核读进内存，然后跳转到操作系统内核处开始执行。从编写操作系统角度来说，前面的CPU上电及BIOS的工作都不是操作系统能控制的，而从引导扇区开始，就完完全全可由操作系统来控制了，因此，编写引导扇区也是编写操作系统必要的工作之一。从BIOS跳入引导扇区后，计算机系统引导工作就算完成，怎样把操作系统内核读进内存，然后再安排一条跳转指令跳到内核处执行就是操作系统开发人员的工作了。</p>
+<hr>
+<p>512字节的主引导记录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　（1） 第1-446字节：调用操作系统的机器码。</div><div class="line">　　（2） 第447-510字节：分区表（Partition table）。</div><div class="line">　　（3） 第511-512字节：主引导记录签名（0x55和0xAA）。</div></pre></td></tr></table></figure>
+<p>硬盘分区有很多好处。考虑到每个区可以安装不同的操作系统，”主引导记录”因此必须知道将控制权转交给哪个区。<br>分区表的长度只有64个字节，里面又分成四项，每项16个字节。所以，一个硬盘最多只能分四个一级分区，又叫做”主分区”。<br>每个主分区的16个字节，由6个部分组成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　  （1） 第1个字节：如果为0x80，就表示该主分区是激活分区，控制权要转交给这个分区。四个主分区里面只能有一个是激活的。</div><div class="line">　　（2） 第2-4个字节：主分区第一个扇区的物理位置（柱面、磁头、扇区号等等）。</div><div class="line">　　（3） 第5个字节：主分区类型。</div><div class="line">　　（4） 第6-8个字节：主分区最后一个扇区的物理位置。</div><div class="line">　　（5） 第9-12字节：该主分区第一个扇区的逻辑地址。</div><div class="line">　　（6） 第13-16字节：主分区的扇区总数。</div></pre></td></tr></table></figure>
+<p>最后的四个字节（”主分区的扇区总数”），决定了这个主分区的长度。也就是说，一个主分区的扇区总数最多不超过2的32次方。<br>如果每个扇区为512个字节，就意味着单个分区最大不超过2TB。再考虑到扇区的逻辑地址也是32位，所以单个硬盘可利用的空间最大也不超过2TB。如果想使用更大的硬盘，只有2个方法：一是提高每个扇区的字节数，二是增加扇区总数。</p>
 <hr>
 <p><strong>版权声明</strong></p>
 <p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
@@ -472,7 +455,7 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/09/06/printf函数实现/">http://www.steven7.top/2016/09/06/printf函数实现/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/09/08/对于计算机开机过程的一些看法/">http://www.steven7.top/2016/09/08/对于计算机开机过程的一些看法/</a></p>
 
       
     </div>
@@ -511,9 +494,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/函数实现/" rel="tag">#函数实现</a>
+            <a href="/tags/操作系统/" rel="tag">#操作系统</a>
           
-            <a href="/tags/printf/" rel="tag">#printf</a>
+            <a href="/tags/计算机/" rel="tag">#计算机</a>
+          
+            <a href="/tags/开机过程/" rel="tag">#开机过程</a>
+          
+            <a href="/tags/看法/" rel="tag">#看法</a>
           
         </div>
       
@@ -522,17 +509,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/06/atoi-algorithm-implementation/" rel="next" title="atoi函数实现">
-                <i class="fa fa-chevron-left"></i> atoi函数实现
+              <a href="/2016/09/06/printf函数实现/" rel="next" title="printf函数实现">
+                <i class="fa fa-chevron-left"></i> printf函数实现
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/08/对于计算机开机过程的一些看法/" rel="prev" title="对于计算机开机过程的一些看法">
-                对于计算机开机过程的一些看法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -547,10 +530,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/06/printf函数实现/"
-     data-title="printf函数实现"
+        <div class="ds-share flat" data-thread-key="2016/09/08/对于计算机开机过程的一些看法/"
+     data-title="对于计算机开机过程的一些看法"
      data-content=""
-     data-url="http://www.steven7.top/2016/09/06/printf函数实现/">
+     data-url="http://www.steven7.top/2016/09/08/对于计算机开机过程的一些看法/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -581,8 +564,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/06/printf函数实现/"
-           data-title="printf函数实现" data-url="http://www.steven7.top/2016/09/06/printf函数实现/">
+      <div class="ds-thread" data-thread-key="2016/09/08/对于计算机开机过程的一些看法/"
+           data-title="对于计算机开机过程的一些看法" data-url="http://www.steven7.top/2016/09/08/对于计算机开机过程的一些看法/">
       </div>
     
   </div>
@@ -725,7 +708,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#系统引导"><span class="nav-number">1.</span> <span class="nav-text">系统引导</span></a></li></ol></div>
             
           </div>
         </section>
