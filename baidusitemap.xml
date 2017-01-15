@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://www.steven7.top/2017/01/15/2017-1/</loc>
+    <lastmod>2017-01-15T04:01:21.484Z</lastmod>
+    <data>
+        <display>
+        <title>回首2016，展望2017</title>
+        <pubTime>2017-01-15T02:59:16.000Z</pubTime>
+        
+        <tag>流水账</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://www.steven7.top/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.steven7.top/2016/09/11/%E9%9B%81%E6%A0%96%E6%B9%96%E5%9B%BD%E7%A7%91%E5%A4%A7%E7%BE%BD%E6%AF%9B%E7%90%83%E8%AE%B0%E4%BA%8B/</loc>
     <lastmod>2016-09-11T09:57:47.697Z</lastmod>
     <data>
@@ -208,9 +228,9 @@
         <title>Hexo博客页面留白太多,代码看起来不方便</title>
         <pubTime>2016-08-15T00:02:15.000Z</pubTime>
         
-        <tag>页面留白</tag>
-         
         <tag>Hexo</tag>
+         
+        <tag>页面留白</tag>
          
          
            
@@ -230,9 +250,9 @@
         <title>基于HexoNexT的SEO优化</title>
         <pubTime>2016-08-14T07:31:39.000Z</pubTime>
         
-        <tag>SEO优化</tag>
-         
         <tag>Hexo</tag>
+         
+        <tag>SEO优化</tag>
          
          
            
