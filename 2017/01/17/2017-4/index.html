@@ -102,7 +102,7 @@
 <meta property="og:title" content="比特币白皮书：一种点对点的电子现金系统">
 <meta property="og:url" content="http://www.steven7.top/2017/01/17/2017-4/index.html">
 <meta property="og:site_name" content="Steven`s Notes">
-<meta property="og:image" content="http://i1.piimg.com/1949/fcf3f2bf4407ba3c.png">
+<meta property="og:image" content="http://p1.bqimg.com/1949/2a297568091ba15ft.jpg">
 <meta property="og:image" content="http://7fvhfe.com1.z0.glb.clouddn.com/wp-content/uploads/2013/11/11.png">
 <meta property="og:image" content="http://7fvhfe.com1.z0.glb.clouddn.com/wp-content/uploads/2013/11/21.png">
 <meta property="og:image" content="http://7fvhfe.com1.z0.glb.clouddn.com/wp-content/uploads/2013/11/31.png">
@@ -115,10 +115,10 @@
 <meta property="og:image" content="http://7fvhfe.com1.z0.glb.clouddn.com/wp-content/uploads/2013/11/pq2.png">
 <meta property="og:image" content="http://7fvhfe.com1.z0.glb.clouddn.com/wp-content/uploads/2013/11/pq3.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/473944d51f13444e.png">
-<meta property="og:updated_time" content="2017-01-17T13:06:43.268Z">
+<meta property="og:updated_time" content="2017-01-17T13:49:37.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="比特币白皮书：一种点对点的电子现金系统">
-<meta name="twitter:image" content="http://i1.piimg.com/1949/fcf3f2bf4407ba3c.png">
+<meta name="twitter:image" content="http://p1.bqimg.com/1949/2a297568091ba15ft.jpg">
 
 
 
@@ -388,7 +388,7 @@
       
 
       
-        <p><img src="http://i1.piimg.com/1949/fcf3f2bf4407ba3c.png" alt="Markdown"></p>
+        <p><img src="http://p1.bqimg.com/1949/2a297568091ba15ft.jpg" alt="Markdown"></p>
 <a id="more"></a>
 <p>写在前面的一些话：</p>
 <p>这边paper本来是写在上篇博客所推荐的“区块链：定义未来金融与经济新格局”的附录中的，由于不好提取所以转载了一篇网上现有的文章。</p>
@@ -452,39 +452,9 @@
 <p>写为如下C语言代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> double AttackerSuccessProbability(double q, int z)</span></div><div class="line">&#123;</div><div class="line"><span class="keyword">double</span> p = <span class="number">1.0</span> - q;</div><div class="line"><span class="keyword">double</span> lambda = z * (q / p);</div><div class="line"><span class="keyword">double</span> sum = <span class="number">1.0</span>;</div><div class="line"><span class="keyword">int</span> i, k;</div><div class="line"><span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= z; k++)</div><div class="line">&#123;</div><div class="line"><span class="keyword">double</span> poisson = <span class="built_in">exp</span>(-lambda);</div><div class="line"><span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= k; i++)</div><div class="line">poisson *= lambda / i;</div><div class="line">sum -= poisson * (<span class="number">1</span> - <span class="built_in">pow</span>(q / p, z - k));</div><div class="line">&#125;</div><div class="line"><span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>对其进行运算，我们可以得到如下的概率结果，发现概率对z值呈指数下降。</p>
-<p>当q=0.1时</p>
-<p>当q=0.1时<br>z=0 P=1.0000000</p>
-<p>当q=0.1时<br>z=0 P=1.0000000<br>z=1 P=0.2045873</p>
-<p>当q=0.1时<br>z=0 P=1.0000000<br>z=1 P=0.2045873<br>z=2 P=0.0509779</p>
-<p>当q=0.1时<br>z=0 P=1.0000000<br>z=1 P=0.2045873<br>z=2 P=0.0509779<br>z=3 P=0.0131722</p>
-<p>当q=0.1时<br>z=0 P=1.0000000<br>z=1 P=0.2045873<br>z=2 P=0.0509779<br>z=3 P=0.0131722<br>z=4 P=0.0034552</p>
-<p>当q=0.1时<br>z=0 P=1.0000000<br>z=1 P=0.2045873<br>z=2 P=0.0509779<br>z=3 P=0.0131722<br>z=4 P=0.0034552<br>z=5 P=0.0009137</p>
-<p>当q=0.1时<br>z=0 P=1.0000000<br>z=1 P=0.2045873<br>z=2 P=0.0509779<br>z=3 P=0.0131722<br>z=4 P=0.0034552<br>z=5 P=0.0009137<br>z=6 P=0.0002428</p>
-<p>当q=0.1时<br>z=0 P=1.0000000<br>z=1 P=0.2045873<br>z=2 P=0.0509779<br>z=3 P=0.0131722<br>z=4 P=0.0034552<br>z=5 P=0.0009137<br>z=6 P=0.0002428<br>z=7 P=0.0000647</p>
-<p>当q=0.1时<br>z=0 P=1.0000000<br>z=1 P=0.2045873<br>z=2 P=0.0509779<br>z=3 P=0.0131722<br>z=4 P=0.0034552<br>z=5 P=0.0009137<br>z=6 P=0.0002428<br>z=7 P=0.0000647<br>z=8 P=0.0000173</p>
-<p>当q=0.1时<br>z=0 P=1.0000000<br>z=1 P=0.2045873<br>z=2 P=0.0509779<br>z=3 P=0.0131722<br>z=4 P=0.0034552<br>z=5 P=0.0009137<br>z=6 P=0.0002428<br>z=7 P=0.0000647<br>z=8 P=0.0000173<br>z=9 P=0.0000046</p>
 <p>当q=0.1时<br>z=0 P=1.0000000<br>z=1 P=0.2045873<br>z=2 P=0.0509779<br>z=3 P=0.0131722<br>z=4 P=0.0034552<br>z=5 P=0.0009137<br>z=6 P=0.0002428<br>z=7 P=0.0000647<br>z=8 P=0.0000173<br>z=9 P=0.0000046<br>z=10 P=0.0000012</p>
-<p>当q=0.3时</p>
-<p>当q=0.3时<br>z=0 P=1.0000000</p>
-<p>当q=0.3时<br>z=0 P=1.0000000<br>z=5 P=0.1773523</p>
-<p>当q=0.3时<br>z=0 P=1.0000000<br>z=5 P=0.1773523<br>z=10 P=0.0416605</p>
-<p>当q=0.3时<br>z=0 P=1.0000000<br>z=5 P=0.1773523<br>z=10 P=0.0416605<br>z=15 P=0.0101008</p>
-<p>当q=0.3时<br>z=0 P=1.0000000<br>z=5 P=0.1773523<br>z=10 P=0.0416605<br>z=15 P=0.0101008<br>z=20 P=0.0024804</p>
-<p>当q=0.3时<br>z=0 P=1.0000000<br>z=5 P=0.1773523<br>z=10 P=0.0416605<br>z=15 P=0.0101008<br>z=20 P=0.0024804<br>z=25 P=0.0006132</p>
-<p>当q=0.3时<br>z=0 P=1.0000000<br>z=5 P=0.1773523<br>z=10 P=0.0416605<br>z=15 P=0.0101008<br>z=20 P=0.0024804<br>z=25 P=0.0006132<br>z=30 P=0.0001522</p>
-<p>当q=0.3时<br>z=0 P=1.0000000<br>z=5 P=0.1773523<br>z=10 P=0.0416605<br>z=15 P=0.0101008<br>z=20 P=0.0024804<br>z=25 P=0.0006132<br>z=30 P=0.0001522<br>z=35 P=0.0000379</p>
-<p>当q=0.3时<br>z=0 P=1.0000000<br>z=5 P=0.1773523<br>z=10 P=0.0416605<br>z=15 P=0.0101008<br>z=20 P=0.0024804<br>z=25 P=0.0006132<br>z=30 P=0.0001522<br>z=35 P=0.0000379<br>z=40 P=0.0000095</p>
-<p>当q=0.3时<br>z=0 P=1.0000000<br>z=5 P=0.1773523<br>z=10 P=0.0416605<br>z=15 P=0.0101008<br>z=20 P=0.0024804<br>z=25 P=0.0006132<br>z=30 P=0.0001522<br>z=35 P=0.0000379<br>z=40 P=0.0000095<br>z=45 P=0.0000024</p>
 <p>当q=0.3时<br>z=0 P=1.0000000<br>z=5 P=0.1773523<br>z=10 P=0.0416605<br>z=15 P=0.0101008<br>z=20 P=0.0024804<br>z=25 P=0.0006132<br>z=30 P=0.0001522<br>z=35 P=0.0000379<br>z=40 P=0.0000095<br>z=45 P=0.0000024<br>z=50 P=0.0000006</p>
 <p>求解令P&lt;0.1%的z值：</p>
-<p>为使P&lt;0.001，则</p>
-<p>为使P&lt;0.001，则<br>q=0.10 z=5</p>
-<p>为使P&lt;0.001，则<br>q=0.10 z=5<br>q=0.15 z=8</p>
-<p>为使P&lt;0.001，则<br>q=0.10 z=5<br>q=0.15 z=8<br>q=0.20 z=11</p>
-<p>为使P&lt;0.001，则<br>q=0.10 z=5<br>q=0.15 z=8<br>q=0.20 z=11<br>q=0.25 z=15</p>
-<p>为使P&lt;0.001，则<br>q=0.10 z=5<br>q=0.15 z=8<br>q=0.20 z=11<br>q=0.25 z=15<br>q=0.30 z=24</p>
-<p>为使P&lt;0.001，则<br>q=0.10 z=5<br>q=0.15 z=8<br>q=0.20 z=11<br>q=0.25 z=15<br>q=0.30 z=24<br>q=0.35 z=41</p>
-<p>为使P&lt;0.001，则<br>q=0.10 z=5<br>q=0.15 z=8<br>q=0.20 z=11<br>q=0.25 z=15<br>q=0.30 z=24<br>q=0.35 z=41<br>q=0.40 z=89</p>
 <p>为使P&lt;0.001，则<br>q=0.10 z=5<br>q=0.15 z=8<br>q=0.20 z=11<br>q=0.25 z=15<br>q=0.30 z=24<br>q=0.35 z=41<br>q=0.40 z=89<br>q=0.45 z=340</p>
 <h2 id="12-结论"><a href="#12-结论" class="headerlink" title="12.结论"></a>12.结论</h2><p>我们在此提出了一种不需要信用中介的电子支付系统。我们首先讨论了通常的电子货币的电子签名原理，虽然这种系统为所有权提供了强有力的控制，但是不足以防止双重支付。为了解决这个问题，我们提出了一种采用工作量证明机制的点对点网络来记录交易的公开信息，只要诚实的节点能够控制绝大多数的CPU计算能力，就能使得攻击者事实上难以改变交易记录。该网络的强健之处在于它结构上的简洁性。节点之间的工作大部分是彼此独立的，只需要很少的协同。每个节点都不需要明确自己的身份，由于交易信息的流动路径并无任何要求，所以只需要尽其最大努力传播即可。节点可以随时离开网络，而想重新加入网络也非常容易，因为只需要补充接收离开期间的工作量证明链条即可。节点通过自己的CPU计算力进行投票，表决他们对有效区块的确认，他们不断延长有效的区块链来表达自己的确认，并拒绝在无效的区块之后延长区块以表示拒绝。本框架包含了一个P2P电子货币系统所需要的全部规则和激励措施。</p>
 <p>注释   </p>
