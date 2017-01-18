@@ -1,0 +1,1081 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="atoi,函数实现," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="atoi函数实现">
+<meta property="og:url" content="http://www.steven7.top/2016/09/06/atoi-algorithm-implementation.html">
+<meta property="og:site_name" content="Steven`s Notes">
+<meta property="og:image" content="http://i1.piimg.com/567571/7117cd662881209d.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/473944d51f13444e.png">
+<meta property="og:updated_time" content="2016-09-07T04:51:17.712Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="atoi函数实现">
+<meta name="twitter:image" content="http://i1.piimg.com/567571/7117cd662881209d.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: false,
+    motion: true,
+    duoshuo: {
+      userId: 6317495250554193000,
+      author: '主编大人'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.steven7.top/2016/09/06/atoi-algorithm-implementation.html"/>
+
+  <title> atoi函数实现 | Steven`s Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Steven`s Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">技术改变生活</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/favorite/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            小时光
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                atoi函数实现
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-06T14:56:48+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术分享/" itemprop="url" rel="index">
+                    <span itemprop="name">技术分享</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/atoi-algorithm-implementation.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/atoi-algorithm-implementation.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/06/atoi-algorithm-implementation.html" class="leancloud_visitors" data-flag-title="atoi函数实现">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://i1.piimg.com/567571/7117cd662881209d.png" alt=""></p>
+<a id="more"></a>
+<p>操作系统课上，老师提出了一个问题：</p>
+<blockquote>
+<p>当我们通过键盘输入10000的时候，我们是通过键盘打出字符‘1’、‘0’、‘0’、‘0’、‘0’的。然而系统可以将其识别为数字10000。似不似感觉炒鸡神奇。老师给我们提示了一个函数：<code>atoi</code></p>
+</blockquote>
+<p>通过查询C语言API得知<code>atoi()</code>函数如下：</p>
+<p><code>atoi()</code>函数用来将字符串转换成整数<code>(int)</code>，其原型为：</p>
+<p><code>int atoi (const char * str);</code></p>
+<p>【函数说明】atoi() 函数会扫描参数 str 字符串，跳过前面的空白字符（例如空格，tab缩进等，可以通过 <a href="http://c.biancheng.net/cpp/html/120.html" target="_blank" rel="external">isspace()</a> 函数来检测），直到遇上数字或正负符号才开始做转换，而再遇到非数字或字符串结束时(‘\0’)才结束转换，并将结果返回。</p>
+<p>【返回值】返回转换后的整型数；如果 str 不能转换成 int 或者 str 为空字符串，那么将返回 0。</p>
+<p>温馨提示：</p>
+<p>ANSI C 规范定义了 <a href="http://c.biancheng.net/cpp/html/124.html" target="_blank" rel="external">stof()</a>、<a href="http://c.biancheng.net/cpp/html/125.html" target="_blank" rel="external">atoi()</a>、<a href="http://c.biancheng.net/cpp/html/126.html" target="_blank" rel="external">atol()</a>、<a href="http://c.biancheng.net/cpp/html/128.html" target="_blank" rel="external">strtod()</a>、<a href="http://c.biancheng.net/cpp/html/129.html" target="_blank" rel="external">strtol()</a>、<a href="http://c.biancheng.net/cpp/html/130.html" target="_blank" rel="external">strtoul()</a> 共6个可以将字符串转换为数字的函数，大家可以对比学习。另外在 C99 / C++11 规范中又新增了5个函数，分别是 atoll()、strtof()、strtold()、strtoll()、strtoull()，在此不做介绍，请大家自行学习。</p>
+<p>范例如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* atoi example */</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span>      <span class="comment">/* printf, fgets */</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span>     <span class="comment">/* atoi */</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">int</span> i;</div><div class="line">  <span class="keyword">char</span> buffer[<span class="number">256</span>];</div><div class="line">  <span class="built_in">printf</span> (<span class="string">"Enter a number: "</span>);</div><div class="line">  fgets (buffer, <span class="number">256</span>, <span class="built_in">stdin</span>);</div><div class="line">  i = atoi (buffer);</div><div class="line">  <span class="built_in">printf</span> (<span class="string">"The value entered is %d. Its double is %d.\n"</span>,i,i*<span class="number">2</span>);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Output:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter a number: 73</div><div class="line">The value entered is 73. Its double is 146.</div></pre></td></tr></table></figure>
+<p>通过了解<code>atoi()</code>函数之后可以发现，要想实现<code>atoi()</code>函数要注意一下问题：</p>
+<ul>
+<li>跳过前面的空白字符</li>
+<li>遇到数字或字符号要开始转换</li>
+<li>再遇到非数字或字符串结束时结束转换</li>
+<li>异常输入的情况输入0</li>
+</ul>
+<p>上述几点都是通过API提取出来的，包括了函数的开始条件以及结束条件。但是API中忽略了一个很重要的问题那就是没有考虑<strong><em>溢出</em></strong>的情况。</p>
+<blockquote>
+<p>注意：考虑溢出的情况，应该将输入数据与<code>int</code>值所能表示的最大值<code>INT_MAX</code>和最小值<code>INT_MIN</code>进行比较</p>
+</blockquote>
+<p><code>C</code>中<code>int</code>类型32位,范围是-2147483648到2147483647.</p>
+<p>（1）最轻微的上溢是 <code>INT_MAX + 1</code> ：结果是 <code>INT_MIN</code>。<br>（2）最严重的上溢是 <code>INT_MAX + INT_MAX</code> ：结果是 -2。<br>（3）最轻微的下溢是 <code>INT_MIN - 1</code> ：结果是 <code>INT_MAX</code>。<br>（4）最严重的下溢是 <code>INT_MIN +INT_MIN</code> ：结果是 0。</p>
+<p>atoi函数的实现如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INT_MAX ((int)0x7FFFFFFF)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INT_MIN ((int)0x80000000)</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">myatoi</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * str)</span></span>;</div><div class="line"><span class="keyword">bool</span> vaild = <span class="literal">true</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">myatoi</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * str)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">bool</span> minus = <span class="literal">false</span>;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> result = <span class="number">0</span>;</div><div class="line">    vaild = <span class="literal">false</span>;</div><div class="line">    <span class="keyword">if</span>(str==<span class="literal">NULL</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(*str==<span class="string">' '</span>)</div><div class="line">        str++;</div><div class="line">    <span class="keyword">if</span>(*str==<span class="string">'-'</span>)&#123;</div><div class="line">        minus = <span class="literal">true</span>;</div><div class="line">        str++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(*str==<span class="string">'+'</span>)&#123;</div><div class="line">        str++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(*str&lt;<span class="string">'0'</span>||*str&gt;<span class="string">'9'</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    vaild = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">while</span>(*str&gt;=<span class="string">'0'</span>&amp;&amp;*str&lt;=<span class="string">'9'</span>)&#123;</div><div class="line">        result = result*<span class="number">10</span>+(*str-<span class="string">'0'</span>);</div><div class="line">        <span class="keyword">if</span>((minus &amp;&amp; result&gt;INT_MAX+<span class="number">1L</span>L)|| (!minus &amp;&amp; result&gt;INT_MAX))&#123;</div><div class="line">            vaild = <span class="literal">false</span>;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span> ;</div><div class="line">        &#125;</div><div class="line">        str++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(minus)</div><div class="line">        result*=<span class="number">-1</span>;</div><div class="line">    <span class="keyword">return</span> (<span class="keyword">int</span>)result;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i,j;</div><div class="line">    <span class="keyword">char</span> buffer[<span class="number">256</span>];</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"please input number: "</span>);</div><div class="line">    fgets(buffer,<span class="number">256</span>,<span class="built_in">stdin</span>);</div><div class="line">    i = atoi(buffer);</div><div class="line">    j = myatoi(buffer);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"The value entered is %d. Its double is %d.\n"</span>,i,i*<span class="number">2</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"The value entered is %d. Its double is %d.\n"</span>,j,j*<span class="number">2</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>output:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">please input number: 2147483647</div><div class="line">The value entered is 2147483647. Its double is -2.</div><div class="line">The value entered is 2147483647. Its double is -2.</div><div class="line">please input number: -2147483648</div><div class="line">The value entered is -2147483648. Its double is 0.</div><div class="line">The value entered is -2147483648. Its double is 0.</div><div class="line">please input number: 2147483648</div><div class="line">The value entered is -2147483648. Its double is 0.</div><div class="line">The value entered is 0. Its double is 0.</div><div class="line">please input number: -2147483649</div><div class="line">The value entered is 2147483647. Its double is -2.</div><div class="line">The value entered is 0. Its double is 0.</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意:C语言自带的<code>atoi()</code>函数没有考虑到数据溢出的情况。</p>
+</blockquote>
+<p> <code>if((minus &amp;&amp; result&gt;INT_MAX+1LL)|| (!minus &amp;&amp; result&gt;INT_MAX))</code></p>
+<p>当输入的数据带负号时，并且结果的绝对值&gt;2147483648，说明已达到下溢；当输入的数据不带负号，并且结果的绝对值&gt;2147483647,说明已达到上溢。</p>
+<p><a href="http://cpp.sh/" target="_blank" rel="external"><code>在线C++ shell</code></a></p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/09/06/atoi-algorithm-implementation.html">http://www.steven7.top/2016/09/06/atoi-algorithm-implementation.html</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！蟹蟹:-D</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward.jpg" alt="Steven WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/atoi/" rel="tag">#atoi</a>
+          
+            <a href="/tags/函数实现/" rel="tag">#函数实现</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/23/graduatefromcsu.html" rel="next" title="毕业回想-附赠蹭饭神器">
+                <i class="fa fa-chevron-left"></i> 毕业回想-附赠蹭饭神器
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/06/printf函数实现.html" rel="prev" title="printf函数实现">
+                printf函数实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/06/atoi-algorithm-implementation.html"
+     data-title="atoi函数实现"
+     data-content=""
+     data-url="http://www.steven7.top/2016/09/06/atoi-algorithm-implementation.html">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/06/atoi-algorithm-implementation.html"
+           data-title="atoi函数实现" data-url="http://www.steven7.top/2016/09/06/atoi-algorithm-implementation.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Steven" />
+          <p class="site-author-name" itemprop="name">Steven</p>
+          <p class="site-description motion-element" itemprop="description">踮脚张望的时光丶</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags.html">
+                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/peishichao" target="_blank" title="GitHub" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3295144802" target="_blank" title="微博" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/" target="_blank" title="豆瓣" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/pei-pei-30" target="_blank" title="知乎" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.hrwhisper.me/" title="hrwhisper" target="_blank" rel="external nofollow">hrwhisper</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://wqs123.github.io" title="wqs" target="_blank" rel="external nofollow">wqs</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://jinqiao.name" title="georgie" target="_blank" rel="external nofollow">georgie</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Steven</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"steven7"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("tWvJA06COscKVx4FjH1DG41H-gzGzoHsz", "TF6v4j09ybdQE4rxPhNvkDKb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

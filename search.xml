@@ -4,8 +4,52 @@
   
     
     <entry>
+      <title><![CDATA[基于HexoNexT的SEO优化（3）]]></title>
+      <url>http://www.steven7.top/2017/01/18/2017-6.html</url>
+      <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/1949/404cfb114e94fe65t.jpg" alt="Markdown"></p>
+<h3 id="修改permalink"><a href="#修改permalink" class="headerlink" title="修改permalink"></a>修改permalink</h3><p>hexo默认的permalink配置是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">permalink: :year/:month/:day/:title/</div></pre></td></tr></table></figure>
+<p>这样生成的访问链接都是类似后缀带有犯些康的，这样可能对于搜索引擎不是太友好，我们可以把permalink修改成.html结尾的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">permalink: :year/:month/:day/:title.html</div></pre></td></tr></table></figure>
+<p>还有一点需要注意的是，上述的title最好是英文的，因为永久链接最好不带中文。</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2017/01/18/2017-6.html">http://www.steven7.top/2017/01/18/2017-6.html</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[解决github pages屏蔽百度爬虫的问题]]></title>
+      <url>http://www.steven7.top/2017/01/18/2017-5-1.html</url>
+      <content type="html"><![CDATA[<p><img src="http://p1.bqimg.com/1949/82bd234fbaaa83e4.png" alt="Markdown"></p>
+<a id="more"></a>
+<p>GitHub pages屏蔽了百度爬虫(屏蔽了百度爬虫的UAMozilla/5.0 (compatible; Baiduspider/2.0; +<a href="http://www.baidu.com/search/spider.html))。这样你的博客如果是部署在github上面的话是很难被百度收录的，从百度站长工具抓取诊断中就可以发现爬取都是403" target="_blank" rel="external">http://www.baidu.com/search/spider.html))。这样你的博客如果是部署在github上面的话是很难被百度收录的，从百度站长工具抓取诊断中就可以发现爬取都是403</a> forbidden。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">HTTP/1.0 403 Forbidden</div><div class="line">Cache-Control: no-cache</div><div class="line">Connection: close</div><div class="line">Content-Type: text/html</div></pre></td></tr></table></figure>
+<p>目前主要有两种解决方案：CDN回源和为百度spider指定特殊线路。</p>
+<h3 id="CDN回源"><a href="#CDN回源" class="headerlink" title="CDN回源"></a>CDN回源</h3><p>博客一般都是静态文件，很适合使用CDN回源，这样不仅能提高访问速度还能跳过github对百度爬虫的屏蔽。<br>回源的意思是用户请求hexo之后CDN会抓取博客内容，这样其他用户就不用访问github pages了而是直接从CDN就近的节点拉取数据，访问速度更快。但是这里有个问题，比如百度爬虫所在的区域CDN节点还没有缓存博客数据，这样百度爬虫会穿透CDN直接请求到github pages，然后后果就是github pages返回403 forbidden。所以CDN回源的方式仅适用于博客访客量比较大的情况（这样访问会在百度爬虫之前让CDN缓存博客数据，当然也只是比较大的概率）。</p>
+<p>不过如果无视百度爬虫，给hexo加上CDN回源也是很不错的，至少能提高访问速度。我使用的是百度云加速。百度云加速提供免费的CDN加速功能，还可以更快的被百度蜘蛛抓到，何乐而不为呐。部分操作可以参考我的这篇博客的相关提示。<a href="http://www.steven7.top/2016/08/15/Hexo-Seo-2/">本博客的SEO优化（2）-让谷歌和百度尽快收录你</a></p>
+<h3 id="为百度spider指定特殊线路"><a href="#为百度spider指定特殊线路" class="headerlink" title="为百度spider指定特殊线路"></a>为百度spider指定特殊线路</h3><p>除了github pages能托管hexo之外，还有其他的选择，比如gitcafe pages(已经和coding.net合并)。传送门：<a href="https://coding.net/help/doc/pages/index.html" target="_blank" rel="external">gitcafe pages配置</a>，配置还是挺简单的。而且gitcafe没有屏蔽百度爬虫。但是gitcafe pages的服务器目前还不够github给力（偶尔出现一些无法打开的情况），所以有了新的思路：</p>
+<p>正常用户访问github pages，百度爬虫访问gitcafe</p>
+<p>现在的DNS解析服务一般都可以指定特定的线路，比如指定百度爬虫的线路解析到gitcafe。</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2017/01/18/2017-5-1.html">http://www.steven7.top/2017/01/18/2017-5-1.html</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于比特币的更多解释：比特币协议的工作原理（解析双重花费）]]></title>
-      <url>http://www.steven7.top/2017/01/17/2017-5/</url>
+      <url>http://www.steven7.top/2017/01/17/2017-5.html</url>
       <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/1949/25809df938ec065d.jpg" alt="Markdown"></p>
 <p><strong>If you don’t believe me or don’t get it, I don’t have time to try to convince you, sorry.</strong></p>
 <p>中本聪：比特币创始人</p>
@@ -91,13 +135,13 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2017/01/17/2017-5/">http://www.steven7.top/2017/01/17/2017-5/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2017/01/17/2017-5.html">http://www.steven7.top/2017/01/17/2017-5.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[比特币白皮书：一种点对点的电子现金系统]]></title>
-      <url>http://www.steven7.top/2017/01/17/2017-4/</url>
+      <url>http://www.steven7.top/2017/01/17/2017-4.html</url>
       <content type="html"><![CDATA[<p><img src="http://p1.bqimg.com/1949/2a297568091ba15ft.jpg" alt="Markdown"></p>
 <a id="more"></a>
 <p>写在前面的一些话：</p>
@@ -185,13 +229,13 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2017/01/17/2017-4/">http://www.steven7.top/2017/01/17/2017-4/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2017/01/17/2017-4.html">http://www.steven7.top/2017/01/17/2017-4.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[“区块链：定义未来金融与经济新格局”的读书笔记（作者：张健）]]></title>
-      <url>http://www.steven7.top/2017/01/17/2017-3/</url>
+      <url>http://www.steven7.top/2017/01/17/2017-3.html</url>
       <content type="html"><![CDATA[<p><img src="http://p1.bqimg.com/1949/69657ad96184500at.jpg" alt="Markdown"></p>
 <a id="more"></a>
 <p>这本电子书下载了挺久了，放在ibook里面呆了好久一直没有看，刚好回家闲着无事花了几天的时间看完了，把读书笔记分享一下，感觉这本书写的还是挺好的。值得再细读细读。把读书笔记导出来也是花了可费劲的功夫啊。好像ibook的笔记导出功能只能使用iphone自带的邮箱才可以。其他的都不行。<img src="http://i1.piimg.com/1949/7afa535472282aae.gif" alt="Markdown"></p>
@@ -399,13 +443,13 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2017/01/17/2017-3/">http://www.steven7.top/2017/01/17/2017-3/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2017/01/17/2017-3.html">http://www.steven7.top/2017/01/17/2017-3.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[快速搭建属于自己的wiki]]></title>
-      <url>http://www.steven7.top/2017/01/16/2017-2/</url>
+      <url>http://www.steven7.top/2017/01/16/2017-2.html</url>
       <content type="html"><![CDATA[<p><img src="http://p1.bpimg.com/1949/e4a675db979e09ad.jpg" alt="Markdown"></p>
 <a id="more"></a>
 <p>本文参考博文如下：</p>
@@ -436,13 +480,13 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2017/01/16/2017-2/">http://www.steven7.top/2017/01/16/2017-2/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2017/01/16/2017-2.html">http://www.steven7.top/2017/01/16/2017-2.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[回首2016，展望2017]]></title>
-      <url>http://www.steven7.top/2017/01/15/2017-1/</url>
+      <url>http://www.steven7.top/2017/01/15/2017-1.html</url>
       <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/1949/cded92faa38cd4e0.jpg" alt="Markdown"></p>
 <a id="more"></a>
 <p>2016年过去的飞快，实在是没什么感觉。2016年经历了好多，开年的实习，4月份的毕业旅行，5月份的毕设，6月份的本科毕业，7月份的练车，9月份的研究生入学，然后就是紧接着的研究生学习阶段，然后就莫名其妙的一年过去了。这一年总感觉有些不甘和些许的疲倦。</p>
@@ -472,13 +516,13 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2017/01/15/2017-1/">http://www.steven7.top/2017/01/15/2017-1/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2017/01/15/2017-1.html">http://www.steven7.top/2017/01/15/2017-1.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[雁栖湖国科大羽毛球记事]]></title>
-      <url>http://www.steven7.top/2016/09/11/%E9%9B%81%E6%A0%96%E6%B9%96%E5%9B%BD%E7%A7%91%E5%A4%A7%E7%BE%BD%E6%AF%9B%E7%90%83%E8%AE%B0%E4%BA%8B/</url>
+      <url>http://www.steven7.top/2016/09/11/%E9%9B%81%E6%A0%96%E6%B9%96%E5%9B%BD%E7%A7%91%E5%A4%A7%E7%BE%BD%E6%AF%9B%E7%90%83%E8%AE%B0%E4%BA%8B.html</url>
       <content type="html"><![CDATA[<p><img src="http://i4.buimg.com/567571/78f44e2866932549.png" alt=""></p>
 <a id="more"></a>
 <p>昨天下过雨，夜里的雷轰轰的一直响个没完。但是好像并不能影响我这只倒头就睡的单身狗。昨天晚上约好了的明早要一起打球。所以我呼噜呼噜的就睡觉了….(～﹃～)~zZ</p>
@@ -496,13 +540,13 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/09/11/雁栖湖国科大羽毛球记事/">http://www.steven7.top/2016/09/11/雁栖湖国科大羽毛球记事/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/09/11/雁栖湖国科大羽毛球记事.html">http://www.steven7.top/2016/09/11/雁栖湖国科大羽毛球记事.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[对于计算机开机过程的一些看法]]></title>
-      <url>http://www.steven7.top/2016/09/08/%E5%AF%B9%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BC%80%E6%9C%BA%E8%BF%87%E7%A8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95/</url>
+      <url>http://www.steven7.top/2016/09/08/%E5%AF%B9%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BC%80%E6%9C%BA%E8%BF%87%E7%A8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95.html</url>
       <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/567571/76e4a9900a7717ae.png" alt=""></p>
 <a id="more"></a>
 <p>对于大多数学计算机或者是非科班出身的童鞋，大多对于计算机的开机过程大致只了解到按下计算机电源开关的程度。我们对于计算机到底是如何开启的，如何<code>boot</code>的，了解的并不是很多。今天我就这些问题做一些小小的探讨。说的不对或者不好的地方尽情拍砖…</p>
@@ -580,13 +624,13 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/09/08/对于计算机开机过程的一些看法/">http://www.steven7.top/2016/09/08/对于计算机开机过程的一些看法/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/09/08/对于计算机开机过程的一些看法.html">http://www.steven7.top/2016/09/08/对于计算机开机过程的一些看法.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[printf函数实现]]></title>
-      <url>http://www.steven7.top/2016/09/06/printf%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0/</url>
+      <url>http://www.steven7.top/2016/09/06/printf%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0.html</url>
       <content type="html"><![CDATA[<p><img src="http://i4.buimg.com/567571/eae0cc18aa7647f4.png" alt=""></p>
 <a id="more"></a>
 <p>同样也是操作系统的课堂上面，老师说让写一下如何实现<code>printf</code>函数。所以想了解一下<code>printf</code>函数的实现原理。首先，在<code>The C Programming Language</code>第7章7.3小节：变长参数表中，作者以实现<code>printf</code>的一个最简单版本为例，介绍了如何以可移植的方式编写可处理变长参数表的函数。</p>
@@ -681,13 +725,13 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/09/06/printf函数实现/">http://www.steven7.top/2016/09/06/printf函数实现/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/09/06/printf函数实现.html">http://www.steven7.top/2016/09/06/printf函数实现.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[atoi函数实现]]></title>
-      <url>http://www.steven7.top/2016/09/06/atoi-algorithm-implementation/</url>
+      <url>http://www.steven7.top/2016/09/06/atoi-algorithm-implementation.html</url>
       <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/567571/7117cd662881209d.png" alt=""></p>
 <a id="more"></a>
 <p>操作系统课上，老师提出了一个问题：</p>
@@ -735,13 +779,13 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/09/06/atoi-algorithm-implementation/">http://www.steven7.top/2016/09/06/atoi-algorithm-implementation/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/09/06/atoi-algorithm-implementation.html">http://www.steven7.top/2016/09/06/atoi-algorithm-implementation.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[毕业回想-附赠蹭饭神器]]></title>
-      <url>http://www.steven7.top/2016/08/23/graduatefromcsu/</url>
+      <url>http://www.steven7.top/2016/08/23/graduatefromcsu.html</url>
       <content type="html"><![CDATA[<p><img src="http://i4.buimg.com/567571/8af70b8671fa2ae1.jpg" alt=""></p>
 <a id="more"></a>
  <blockquote class="blockquote-center">唯美味与旧识，不可辜负</blockquote>
@@ -761,13 +805,13 @@
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/23/graduatefromcsu/">http://www.steven7.top/2016/08/23/graduatefromcsu/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/23/graduatefromcsu.html">http://www.steven7.top/2016/08/23/graduatefromcsu.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[GitHubHelp-SSH相关问题Error:Permission-denied(publickey)]]></title>
-      <url>http://www.steven7.top/2016/08/19/peoblem-about-git/</url>
+      <url>http://www.steven7.top/2016/08/19/peoblem-about-git.html</url>
       <content type="html"><![CDATA[<p><img src="http://i2.buimg.com/567571/b06ebb799f1e90bc.png" alt=""></p>
 <a id="more"></a>
 <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>我相信很多人都会和我一样，使用<code>github</code>的时候，总是会被各种各样的问题所困扰，实在是让人头痛不已啊 ╮(╯_╰)╭</p>
@@ -881,13 +925,13 @@ Agent pid 59566
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/19/peoblem-about-git/">http://www.steven7.top/2016/08/19/peoblem-about-git/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/19/peoblem-about-git.html">http://www.steven7.top/2016/08/19/peoblem-about-git.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Hexo的奇淫技巧第三发：添加背景以及网站图标设置]]></title>
-      <url>http://www.steven7.top/2016/08/16/hexoskillthree/</url>
+      <url>http://www.steven7.top/2016/08/16/hexoskillthree.html</url>
       <content type="html"><![CDATA[<p><img src="http://i4.buimg.com/567571/aecc6833cfb98a61.png" alt=""></p>
 <a id="more"></a>
 <p>闲来无事总想捣鼓捣鼓自己的这个小博客..的确是闲的蛋疼啊 ︿(￣︶￣)︿</p>
@@ -953,13 +997,13 @@ Agent pid 59566
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/16/hexoskillthree/">http://www.steven7.top/2016/08/16/hexoskillthree/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/16/hexoskillthree.html">http://www.steven7.top/2016/08/16/hexoskillthree.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[本博客的SEO优化（2）-让谷歌和百度尽快收录你]]></title>
-      <url>http://www.steven7.top/2016/08/15/Hexo-Seo-2/</url>
+      <url>http://www.steven7.top/2016/08/15/Hexo-Seo-2.html</url>
       <content type="html"><![CDATA[<p>前言</p>
 <p>亲妈啊！！这真的是我这几天写博文遇到的最最最头痛的问题-让度娘和谷哥尽快的收了我啊/(ㄒoㄒ)/~~</p>
 <p>窝也知道刚开始建的站不可能这么快收录的，然而我这不是心急如焚嘛！！<img src="http://i2.buimg.com/567571/b2c39f2227ba4a78.png" alt=""></p>
@@ -1055,13 +1099,13 @@ Agent pid 59566
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/15/Hexo-Seo-2/">http://www.steven7.top/2016/08/15/Hexo-Seo-2/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/15/Hexo-Seo-2.html">http://www.steven7.top/2016/08/15/Hexo-Seo-2.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Hexo博客页面留白太多,代码看起来不方便]]></title>
-      <url>http://www.steven7.top/2016/08/15/Hexo-page-leave-a-note/</url>
+      <url>http://www.steven7.top/2016/08/15/Hexo-page-leave-a-note.html</url>
       <content type="html"><![CDATA[<p>其实关于浏览器留白这个问题，每个人都有没个人的看法，有人感觉这块多了，那块少了..很难迎合大众。</p>
 <p>关于设置浏览器留白这一部分，<a href="http://theme-next.iissnan.com/faqs.html" target="_blank" rel="external">Hexo NexT主题官方文档</a>给出以下解决方案：</p>
 <p><img src="http://i2.piimg.com/567571/e4a3d80261be3ae4.png" alt=""></p>
@@ -1088,13 +1132,13 @@ Agent pid 59566
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/15/Hexo-page-leave-a-note/">http://www.steven7.top/2016/08/15/Hexo-page-leave-a-note/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/15/Hexo-page-leave-a-note.html">http://www.steven7.top/2016/08/15/Hexo-page-leave-a-note.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[基于HexoNexT的SEO优化]]></title>
-      <url>http://www.steven7.top/2016/08/14/%E5%9F%BA%E4%BA%8EHexoNexT%E7%9A%84SEO%E4%BC%98%E5%8C%96/</url>
+      <url>http://www.steven7.top/2016/08/14/%E5%9F%BA%E4%BA%8EHexoNexT%E7%9A%84SEO%E4%BC%98%E5%8C%96.html</url>
       <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本来建站没多久，刚开始接触，一开始使用的是<strong><em><a href="http://markdownpad.com/" target="_blank" rel="external">MarkdownPad 2</a></em></strong>进行博文编写的。谁料就在今天<a href="https://www.hrwhisper.me/" target="_blank" rel="external"><strong><em>hrwhisper</em></strong></a>在我的博文下面留言告诉我了<a href="http://www.typora.io/" target="_blank" rel="external"><strong><em>Typora</em></strong></a>这个美妙的东西。感觉<strong><em>Typora</em></strong>和<strong><em>markdown</em></strong>更配哟。</p>
 <h3 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h3><p>建站初期，当然是想让搜索引擎可以尽快的收录我咯。所以我这几天疯狂的发博文，其实就是这个道理:-D。</p>
 <p> 聊一聊我最近做的一些SEO优化吧！</p>
@@ -1158,13 +1202,13 @@ Agent pid 59566
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/14/基于HexoNexT的SEO优化/">http://www.steven7.top/2016/08/14/基于HexoNexT的SEO优化/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/14/基于HexoNexT的SEO优化.html">http://www.steven7.top/2016/08/14/基于HexoNexT的SEO优化.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Hexo的奇淫技巧第二发：自动备份Hexo博客源文件]]></title>
-      <url>http://www.steven7.top/2016/08/13/Hexo%E7%9A%84%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7%E7%AC%AC%E4%BA%8C%E5%8F%91/</url>
+      <url>http://www.steven7.top/2016/08/13/Hexo%E7%9A%84%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7%E7%AC%AC%E4%BA%8C%E5%8F%91.html</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近开始写博文的原因其实就是因为无聊..<br>写着写着感觉用Hexo写博文是一种享受~(≧▽≦)/~啦啦啦。写多了就想万一换了电脑或者电脑硬盘出问题了该咋整/(ㄒoㄒ)/~~<br>那将会是哭尽长江水都无法挽回啊！！！所以想着要有个备份方案吧。</p>
 <ul>
 <li><p>方案一：硬盘上复制一份咯。你是不是傻、硬盘坏了不也就木有了==</p>
@@ -1295,13 +1339,13 @@ INFO  Deploy done: git
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第二发/">http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第二发/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第二发.html">http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第二发.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Hexo的奇淫技巧第一发：添加文章时自动打开编辑器]]></title>
-      <url>http://www.steven7.top/2016/08/13/Hexo%E7%9A%84%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7%E7%AC%AC%E4%B8%80%E5%8F%91/</url>
+      <url>http://www.steven7.top/2016/08/13/Hexo%E7%9A%84%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7%E7%AC%AC%E4%B8%80%E5%8F%91.html</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>扯一扯，本来今天心想写一下感悟啥的，谁知道小件小事耽误了整个上午的青春、、简直要哭瞎有木有、、<br><img src="http://i1.piimg.com/567571/abe13cbe996fb11a.png" width="200" heght="200" class="img-center"><br>下面就来说一说心痛的事情，让各位看官笑一笑:-D</p>
 <h2 id="就想偷偷懒自动打开而已"><a href="#就想偷偷懒自动打开而已" class="headerlink" title="就想偷偷懒自动打开而已"></a>就想偷偷懒自动打开而已</h2><p>刚刚拥有属于自己的小站，当然炒鸡炒鸡鸡冻。所以想着多写点文章啥的。写的多了，想着可不可以在Hexo new 文章的时候使用markdownPad自动打开刚添加的文章那。。这样粑粑就可以少做几件事情了，就可以那剩下来的时间玩耍了（LOL啊。炉石啊。啊  我的大海啊）。本来想法很好，也很切合实际咯。我就开始动手了、、谁知道弄了半天都没弄好，最后，打开网易云静了静突发灵感才搞定。。大海啊全是我的泪水。<br><img src="http://i2.piimg.com/567571/5c90f6253a6beb6b.png" class="img-center"><br>下面给各位看官解决方案L</p>
 <p>解决方案（使用<code>hexo new article</code> 自动打开刚添加的博文）</p>
@@ -1322,13 +1366,13 @@ INFO  Deploy done: git
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第一发/">http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第一发/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第一发.html">http://www.steven7.top/2016/08/13/Hexo的奇淫技巧第一发.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[win10下MarkdownPad相关问题解决]]></title>
-      <url>http://www.steven7.top/2016/08/12/win10%E4%B8%8BMarkdownPad%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+      <url>http://www.steven7.top/2016/08/12/win10%E4%B8%8BMarkdownPad%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3.html</url>
       <content type="html"><![CDATA[<h3 id="markdownpad相关问题"><a href="#markdownpad相关问题" class="headerlink" title="markdownpad相关问题"></a>markdownpad相关问题</h3><h4 id="win10下MarkdownPad预览无法显示的解决"><a href="#win10下MarkdownPad预览无法显示的解决" class="headerlink" title="win10下MarkdownPad预览无法显示的解决"></a>win10下MarkdownPad预览无法显示的解决</h4><p><img src="http://easun.org/blog/upload/md_pd.png" alt=""><br>实时预览模式竟然不能用..wtf<br>难道逼我换软件！！！！<br>其实根据官网文档给出的提示</p>
 <blockquote>
 <p>LivePreview is not working - it displays an error message stating This view has crashed!</p>
@@ -1360,13 +1404,13 @@ INFO  Deploy done: git
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/12/win10下MarkdownPad相关问题解决/">http://www.steven7.top/2016/08/12/win10下MarkdownPad相关问题解决/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/12/win10下MarkdownPad相关问题解决.html">http://www.steven7.top/2016/08/12/win10下MarkdownPad相关问题解决.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[谈谈Hexo搭建的个人博客]]></title>
-      <url>http://www.steven7.top/2016/08/12/%E8%B0%88%E8%B0%88Hexo%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+      <url>http://www.steven7.top/2016/08/12/%E8%B0%88%E8%B0%88Hexo%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html</url>
       <content type="html"><![CDATA[<p>大学毕业之后回家断断续续将近2个月的时间了==本打算在家里把驾照考完，可是谁料到人实在是太多了！！导致现在还木有考科目四。马上就要开学了/(ㄒoㄒ)/~~。就在前天随意逛着逛着翻到了<a href="http://notes.iissnan.com/" target="_blank" rel="external">iissnan</a>的博客。感觉自己一直就想要这样一个简洁的博客。所以看了他的博客之后，当机立断就去买域名去了。</p>
 <h2 id="挑选域名"><a href="#挑选域名" class="headerlink" title="挑选域名"></a>挑选域名</h2><p>当然购买域名有很多的途径。我以前也木有听说过百度开放云。不知道我怎么就点进百度开放云里面去买域名去了。现在怎么想也回想不起来为啥（简直Ridiculous）。<img src="http://i4.piimg.com/567571/370154642b07446e.png" alt=""><br>大致域名注册都跟这个页面长得差不多。我选择百度的原因还有可能就是他长得好看呗。然后输入自己想注册的网址然后付款就可以了。百度最近在做活动。我注册了.top的顶级域名才花了4块大洋。这一点一定是这一点我选择了它（便宜是王道）。然后这个域名就是属于你的了。然后就会有属于你的控制台来管理该域名。<img src="http://i2.piimg.com/567571/2ff1a4b90e570b2e.png" alt=""><br>进入域名服务可以对域名进行管理，对域名进行解析、续费等操作。<br><img src="http://i2.piimg.com/567571/7ab560ad26f26a3a.png" alt=""><br>的确现在有了属于自己的域名，然而我们还需要有自己的博客不是吗、意识到这个问题我们才要开始我们的正事:-D</p>
 <h2 id="使用hexo搭建我们的博客"><a href="#使用hexo搭建我们的博客" class="headerlink" title="使用hexo搭建我们的博客"></a>使用<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a>搭建我们的博客</h2><p>hexo是一种快速、简洁且高效的博客框架。使用node.js技术可以让上百个页面在几秒内瞬间完成渲染。等等。。（都是抄的，原谅我手懒==）</p>
@@ -1450,13 +1494,13 @@ hexo s --debug
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/12/谈谈Hexo搭建的个人博客/">http://www.steven7.top/2016/08/12/谈谈Hexo搭建的个人博客/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/12/谈谈Hexo搭建的个人博客.html">http://www.steven7.top/2016/08/12/谈谈Hexo搭建的个人博客.html</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Hello World]]></title>
-      <url>http://www.steven7.top/2016/08/11/hello-world/</url>
+      <url>http://www.steven7.top/2016/08/11/hello-world.html</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
@@ -1473,7 +1517,7 @@ hexo s --debug
 <p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
 <hr>
-<p>本文永久链接：<a href="http://www.steven7.top/2016/08/11/hello-world/">http://www.steven7.top/2016/08/11/hello-world/</a></p>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/08/11/hello-world.html">http://www.steven7.top/2016/08/11/hello-world.html</a></p>
 ]]></content>
     </entry>
     

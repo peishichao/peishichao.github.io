@@ -1,0 +1,1129 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="函数实现,printf," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="printf函数实现">
+<meta property="og:url" content="http://www.steven7.top/2016/09/06/printf函数实现.html">
+<meta property="og:site_name" content="Steven`s Notes">
+<meta property="og:image" content="http://i4.buimg.com/567571/eae0cc18aa7647f4.png">
+<meta property="og:image" content="http://i4.buimg.com/567571/c308e26957b9a8b6.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/473944d51f13444e.png">
+<meta property="og:updated_time" content="2016-09-07T16:51:39.020Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="printf函数实现">
+<meta name="twitter:image" content="http://i4.buimg.com/567571/eae0cc18aa7647f4.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: false,
+    motion: true,
+    duoshuo: {
+      userId: 6317495250554193000,
+      author: '主编大人'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.steven7.top/2016/09/06/printf函数实现.html"/>
+
+  <title> printf函数实现 | Steven`s Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Steven`s Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">技术改变生活</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/favorite/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            小时光
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                printf函数实现
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-06T20:16:54+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术分享/" itemprop="url" rel="index">
+                    <span itemprop="name">技术分享</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/printf函数实现.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/printf函数实现.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/06/printf函数实现.html" class="leancloud_visitors" data-flag-title="printf函数实现">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://i4.buimg.com/567571/eae0cc18aa7647f4.png" alt=""></p>
+<a id="more"></a>
+<p>同样也是操作系统的课堂上面，老师说让写一下如何实现<code>printf</code>函数。所以想了解一下<code>printf</code>函数的实现原理。首先，在<code>The C Programming Language</code>第7章7.3小节：变长参数表中，作者以实现<code>printf</code>的一个最简单版本为例，介绍了如何以可移植的方式编写可处理变长参数表的函数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdarg.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">minprintf</span><span class="params">(<span class="keyword">char</span> *fmt,...)</span></span>&#123;</div><div class="line">va_list ap;</div><div class="line"><span class="keyword">char</span> *p,*sval;</div><div class="line"><span class="keyword">int</span> ival;</div><div class="line"><span class="keyword">double</span> dval;</div><div class="line"></div><div class="line">va_start(ap,fmt);</div><div class="line"><span class="keyword">for</span>(p=fmt;*p;p++)&#123;</div><div class="line">        <span class="keyword">if</span>(*p != <span class="string">'%'</span>)&#123;</div><div class="line">            <span class="built_in">putchar</span>(*p);</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">switch</span>(*++p)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'d'</span>:</div><div class="line">        ival = va_arg(ap,<span class="keyword">int</span>);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,ival);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'f'</span>:</div><div class="line">        dval = va_arg(ap,<span class="keyword">double</span>);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%f"</span>,dval);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'s'</span>:</div><div class="line">        <span class="keyword">for</span>(sval = va_arg(ap,<span class="keyword">char</span> *);*sval;sval++)</div><div class="line">            <span class="built_in">putchar</span>(*sval);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">        <span class="built_in">putchar</span>(*p);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    va_end(ap);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>由于重点在于如何处理参数，所以<code>minprintf</code>重点在于处理字符串和参数。</p>
+<p>通过查询<code>Linux</code>  <code>C</code> <code>API</code>参考手册可以得知：</p>
+<p><code>printf</code>：格式化输出数据</p>
+<p>表头文件：<code>#include&lt;stdio.h&gt;</code></p>
+<p>定义函数：<code>int printf(const char *format,...);</code></p>
+<p>省略号表示参数表中参数的数量和类型都是可变的。省略号只能出现在参数表的尾部。因为<code>minprintf</code>函数不需要像<code>printf</code>函数一样返回实际输出的字符数。因此，我们将它声明为以下形式：</p>
+<p><code>void minprintf(const char *format,...);</code></p>
+<p>编写<code>minprintf</code>函数的关键在于如何处理一个甚至连名字都不知道的参数表。</p>
+<p>可喜的是，标准头文件<code>&lt;stdarg.h&gt;</code>中包含一组宏定义，C语言用宏来处理这些可变的参数。它们定义了如何遍历参数列表。这些宏看起来炒鸡复杂。</p>
+<p>其原理：根据参数入栈的特点从最靠近第一个可变参数的固定参数开始，依次获取每个可变参数的地址。</p>
+<p><a href="http://blog.csdn.net/holandstone/article/details/6947119" target="_blank" rel="external">stdarg.h详解</a>                     </p>
+<p>本文概要总结其实现原理：</p>
+<p>下面以函数<code>fun()</code>为例进行讲解：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span></div><div class="line"> &#123;</div><div class="line">       <span class="keyword">int</span> d;</div><div class="line">       ...</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>正常情况下C语言的函数参数的入栈规则为<code>_stdcall</code>,它是由右至左的，即函数的最右端的参数最先入栈。即入栈的顺序为：<code>c-b-a-d</code></p>
+<p>其栈结构如下：</p>
+<p>​    <code>0x1ffc--&gt;d</code></p>
+<pre><code>`0x2000--&gt;a`
+
+`0x2004--&gt;b`
+
+`0x2008--&gt;c`
+</code></pre><p>对于32位的系统最小的栈单元为<code>sizeof(int)</code>。函数的每个参数都至少占一个栈单元。因此，函数的所有参数都是存储在线性连续的栈空间中的，基于这种存储结构，这样就可以从可变参数函数中必须有的第一个普通参数来寻址后续的所有可变参数的类型及其值。</p>
+<p>对于固定参数列表的函数，我们可以直接通过&amp;a得到a的地址。并且通过函数原型声明得到a的数据类型。</p>
+<p>然而，对于变长参数列表的函数，我们无法采用上述方法。按照C标准可知，</p>
+<blockquote>
+<p>支持变长参数的函数在函数原型声明中，必须有至少一个最左固定参数。</p>
+</blockquote>
+<p>我们便可以通过其中的固定参数的地址。但是无论函数到底有多少个参数、以及每个参数到底是什么类型的，它们都和固定参数的传参过程是一致的，都是栈操作。如此，我们就可以推导出其他变长参数的位置。</p>
+<p>因为栈的延伸方向为从高地址到低地址，栈底占据着最高的内存地址，先入栈的参数，地理位置最高。所以对于可变参数列表的函数 <code>void var_args_func(const char * fmt, ... )</code> 来说可以得到结论：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">first_vararg.addr = fmt.addr + x_sizeof(fmt); <span class="comment">// x_sizeof !=sizeof</span></div><div class="line"></div><div class="line">second_vararg.addr = first_vararg.addr + x_sizeof(first_vararg);</div><div class="line"></div><div class="line">......</div></pre></td></tr></table></figure>
+<p>上述结论得出的如此的简单粗暴。根据这一结论实现以下算法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdarg.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">var_args_func</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * fmt, ...)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span>    *ap;</div><div class="line"></div><div class="line">    ap = ((<span class="keyword">char</span>*)&amp;fmt) + <span class="keyword">sizeof</span>(fmt);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *(<span class="keyword">int</span>*)ap);</div><div class="line"></div><div class="line">    ap =  ap + <span class="keyword">sizeof</span>(<span class="keyword">int</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *(<span class="keyword">int</span>*)ap);</div><div class="line"></div><div class="line">    ap =  ap + <span class="keyword">sizeof</span>(<span class="keyword">int</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, *((<span class="keyword">char</span>**)ap));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    var_args_func(<span class="string">"%d %d %s\n"</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">"hello world"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>期望结果如图所示：</p>
+<p><img src="http://i4.buimg.com/567571/c308e26957b9a8b6.png" alt=""></p>
+<p>上图是我在<code>Code::Blocks</code>编译器的运行结果</p>
+<p><a href="http://c.biancheng.net/cpp/html/1117.html" target="_blank" rel="external">VC6.0中文版下载（支持XP、Win7、Win8、Win10）</a></p>
+<p><a href="https://sourceforge.net/projects/codeblocks/files/Binaries/16.01/Windows/codeblocks-16.01mingw_fortran-setup.exe/download" target="_blank" rel="external">Code::Blocks下载</a></p>
+<p>通过上述讲解我们已经可以明白C语言是如何处理可变参数列表的了。接下来我们就来探讨一下如何实现简单的可变参数的C语言函数。</p>
+<p>想要了解可变参数列表函数的实现首先需要分析的是<code>stdarg.h</code></p>
+<p><code>stdarg.h</code>源代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">#define __va_rounded_size(TYPE)  \</div><div class="line">  (((sizeof (TYPE) + sizeof (int) - 1) / sizeof (int)) * sizeof (int))</div><div class="line"></div><div class="line">#if __GNUC__ &lt; 2</div><div class="line"></div><div class="line">#ifndef __sparc__</div><div class="line">#define va_start(AP, LASTARG)                                           \</div><div class="line"> (AP = ((char *) &amp;(LASTARG) + __va_rounded_size (LASTARG)))</div><div class="line">#else</div><div class="line">#define va_start(AP, LASTARG)                                           \</div><div class="line"> (__builtin_saveregs (),                                                \</div><div class="line">  AP = ((char *) &amp;(LASTARG) + __va_rounded_size (LASTARG)))</div><div class="line">#endif</div><div class="line"></div><div class="line">void va_end (va_list);          /* Defined in gnulib */</div><div class="line">#define va_end(AP)</div><div class="line"></div><div class="line">#define va_arg(AP, TYPE)                                                \</div><div class="line"> (AP += __va_rounded_size (TYPE),                                       \</div><div class="line">  *((TYPE *) (AP - __va_rounded_size (TYPE))))</div><div class="line"></div><div class="line">#else    /* __GNUC__ &gt;= 2 */</div><div class="line"></div><div class="line">#ifndef __sparc__</div><div class="line">#define va_start(AP, LASTARG)                         \</div><div class="line"> (AP = ((char *) __builtin_next_arg ()))</div><div class="line">#else</div><div class="line">#define va_start(AP, LASTARG)                    \</div><div class="line">  (__builtin_saveregs (), AP = ((char *) __builtin_next_arg ()))</div><div class="line">#endif</div><div class="line"></div><div class="line">void va_end (va_list);        /* Defined in libgcc.a */</div><div class="line">#define va_end(AP)</div><div class="line"></div><div class="line">#define va_arg(AP, TYPE)                        \</div><div class="line"> (AP = ((char *) (AP)) += __va_rounded_size (TYPE),            \</div><div class="line">  *((TYPE *) ((char *) (AP) - __va_rounded_size (TYPE))))</div><div class="line"></div><div class="line">#endif    /* __GNUC__ &gt;= 2 */</div><div class="line"></div><div class="line">#else    /* not __GNUC__ */</div><div class="line"></div><div class="line"></div><div class="line">typedef char *va_list;</div><div class="line"></div><div class="line">#define __vasz(x)        ((sizeof(x)+sizeof(int)-1) &amp; ~(sizeof(int) -1))</div><div class="line"></div><div class="line">#define va_start(ap, parmN)    ((ap) = (va_list)&amp;parmN + __vasz(parmN))</div><div class="line">#define va_arg(ap, type)      \</div><div class="line">  (*((type *)((va_list)((ap) = (void *)((va_list)(ap) + __vasz(type))) \</div><div class="line">                            - __vasz(type))))</div><div class="line">#define va_end(ap)</div><div class="line"></div><div class="line"></div><div class="line">#endif /* __GNUC__ */</div><div class="line"></div><div class="line">#endif /* _STDARG_H */</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>行号</th>
+<th>解析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>使用<code>typedef</code>进行了一个声明：<code>typedef char *va_list;</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>定义了用于编译器的内存对齐宏</td>
+</tr>
+<tr>
+<td>17</td>
+<td>#<code>if __GNUC__ &lt; 2</code>，进行<code>GCC</code>的版本判断，看当前版本是否大于2</td>
+</tr>
+<tr>
+<td>20</td>
+<td>使得ap指向函数中的第一个无名参数的首地址的宏</td>
+</tr>
+<tr>
+<td>31</td>
+<td><code>va_arg</code>宏使得<code>ap</code>指向下一个参数，已经处理了内存对齐，其中参数的类型为<code>TYPE</code></td>
+</tr>
+<tr>
+<td>48</td>
+<td><code>va_end</code> 与<code>va_start</code>成对使用.</td>
+</tr>
+</tbody>
+</table>
+<p>由此可知，如果想要写一个简单的可变参数列表的函数需要用到以下宏：</p>
+<p><code>void va_start( va_list arg_ptr, prev_param );</code><br><code>type va_arg( va_list arg_ptr, type );</code><br><code>void va_end( va_list arg_ptr );</code></p>
+<p>通过开篇给出的例子可知使用可变参数的步骤应如下：</p>
+<p>（1）首先在函数中定义一个<code>va_list</code> 变量</p>
+<p>（2）然后使用<code>va_start</code>初始化该变量，该宏返回的结果是第一个无名参数的首地址（该宏的第二个参数为可变参数列表中的固定参数）</p>
+<p>（3）使用<code>va_arg</code>依次获取可变参数列表中的可变参数。（该宏的第二个参数为想要返回参数的参数类型）</p>
+<p>（4）最后使用<code>va_end</code>结束参数获取</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2016/09/06/printf函数实现.html">http://www.steven7.top/2016/09/06/printf函数实现.html</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！蟹蟹:-D</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward.jpg" alt="Steven WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/函数实现/" rel="tag">#函数实现</a>
+          
+            <a href="/tags/printf/" rel="tag">#printf</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/06/atoi-algorithm-implementation.html" rel="next" title="atoi函数实现">
+                <i class="fa fa-chevron-left"></i> atoi函数实现
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/08/对于计算机开机过程的一些看法.html" rel="prev" title="对于计算机开机过程的一些看法">
+                对于计算机开机过程的一些看法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/06/printf函数实现.html"
+     data-title="printf函数实现"
+     data-content=""
+     data-url="http://www.steven7.top/2016/09/06/printf函数实现.html">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/06/printf函数实现.html"
+           data-title="printf函数实现" data-url="http://www.steven7.top/2016/09/06/printf函数实现.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Steven" />
+          <p class="site-author-name" itemprop="name">Steven</p>
+          <p class="site-description motion-element" itemprop="description">踮脚张望的时光丶</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags.html">
+                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/peishichao" target="_blank" title="GitHub" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3295144802" target="_blank" title="微博" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/" target="_blank" title="豆瓣" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/pei-pei-30" target="_blank" title="知乎" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.hrwhisper.me/" title="hrwhisper" target="_blank" rel="external nofollow">hrwhisper</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://wqs123.github.io" title="wqs" target="_blank" rel="external nofollow">wqs</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://jinqiao.name" title="georgie" target="_blank" rel="external nofollow">georgie</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Steven</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"steven7"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("tWvJA06COscKVx4FjH1DG41H-gzGzoHsz", "TF6v4j09ybdQE4rxPhNvkDKb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
