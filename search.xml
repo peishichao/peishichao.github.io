@@ -7,6 +7,7 @@
       <title><![CDATA[基于HexoNexT的SEO优化（3）]]></title>
       <url>http://www.steven7.top/2017/01/18/2017-6.html</url>
       <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/1949/404cfb114e94fe65t.jpg" alt="Markdown"></p>
+<a id="more"></a>
 <h3 id="修改permalink"><a href="#修改permalink" class="headerlink" title="修改permalink"></a>修改permalink</h3><p>hexo默认的permalink配置是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">permalink: :year/:month/:day/:title/</div></pre></td></tr></table></figure>
 <p>这样生成的访问链接都是类似后缀带有犯些康的，这样可能对于搜索引擎不是太友好，我们可以把permalink修改成.html结尾的：</p>
