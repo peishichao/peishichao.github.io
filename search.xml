@@ -6,16 +6,52 @@
     <entry>
       <title><![CDATA[你还没为自己喜欢的生活行动吗？]]></title>
       <url>http://www.steven7.top/2017/02/03/2017-11.html</url>
-      <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>2017年已经过去：</p>
-<p><script type="text/javascript"><br>var time_now_server,time_now_client,time_end,time_server_client,timerID;</p>
-<p>time_end=new Date(“2017/1/1 0:0:0”);//开始的时间<br>time_end=time_end.getTime();</p>
-<p>time_now_server=new Date();<br>time_now_server=time_now_server.getTime();</p>
-<p>time_now_client=new Date();<br>time_now_client=time_now_client.getTime();</p>
-<p>time_server_client=time_now_server-time_now_client;</p>
-<p>setTimeout(“show_time()”,1000);</p>
-<p>function show_time()<br>{<br> var timer = document.getElementById(“timer”);<br> if(!timer){<br> return ;<br> }<br> timer.innerHTML =time_server_client;</p>
-<p> var time_now,time_distance,str_time;<br> var int_day,int_hour,int_minute,int_second;<br> var time_now=new Date();<br> time_now=time_now.getTime()+time_server_client;<br> time_distance=time_now - time_end;<br> if(time_distance&gt;0)<br> {<br>  int_day=Math.floor(time_distance/86400000)<br>  time_distance-=int_day<em>86400000;<br>  int_hour=Math.floor(time_distance/3600000)<br>  time_distance-=int_hour</em>3600000;<br>  int_minute=Math.floor(time_distance/60000)<br>  time_distance-=int_minute*60000;<br>  int_second=Math.floor(time_distance/1000)</p>
-<p>  if(int_hour<10)
+      <content type="html"><![CDATA[
+
+<blockquote class="blockquote-center">
+
+2017年已经过去：
+
+<script type="text/javascript">
+var time_now_server,time_now_client,time_end,time_server_client,timerID;
+
+time_end=new Date("2017/1/1 0:0:0");//开始的时间
+time_end=time_end.getTime();
+
+time_now_server=new Date();
+time_now_server=time_now_server.getTime();
+
+time_now_client=new Date();
+time_now_client=time_now_client.getTime();
+
+time_server_client=time_now_server-time_now_client;
+
+setTimeout("show_time()",1000);
+
+function show_time()
+{
+ var timer = document.getElementById("timer");
+ if(!timer){
+ return ;
+ }
+ timer.innerHTML =time_server_client;
+
+ var time_now,time_distance,str_time;
+ var int_day,int_hour,int_minute,int_second;
+ var time_now=new Date();
+ time_now=time_now.getTime()+time_server_client;
+ time_distance=time_now - time_end;
+ if(time_distance>0)
+ {
+  int_day=Math.floor(time_distance/86400000)
+  time_distance-=int_day*86400000;
+  int_hour=Math.floor(time_distance/3600000)
+  time_distance-=int_hour*3600000;
+  int_minute=Math.floor(time_distance/60000)
+  time_distance-=int_minute*60000;
+  int_second=Math.floor(time_distance/1000)
+
+  if(int_hour<10)
    int_hour="0"+int_hour;
   if(int_minute<10)
    int_minute="0"+int_minute;
@@ -31,10 +67,17 @@
   clearTimeout(timerID)
  }
 }
-</script><br></p>
-<p><body></body></p>
-<p><div id="timer"></div><br><br></p>
+</script>
+
+
+<body>
+<div id="timer"></div>
+</body>
+
+
 </blockquote>
+
+
 <a id="more"></a>
 <hr>
 <p><strong>版权声明</strong></p>
