@@ -26,28 +26,6 @@
 
     
   <url>
-    <loc>http://www.steven7.top/2017/02/03/2017-11.html</loc>
-    <lastmod>2017-02-03T13:15:09.618Z</lastmod>
-    <data>
-        <display>
-        <title>你还没为自己喜欢的生活行动吗？</title>
-        <pubTime>2017-02-03T12:20:15.000Z</pubTime>
-        
-        <tag>2017</tag>
-         
-        <tag>计时</tag>
-         
-         
-           
-             
-              <breadCrumb title="计时" url="http://www.steven7.top/categories/%E8%AE%A1%E6%97%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.steven7.top/2017/02/03/2017-10.html</loc>
     <lastmod>2017-02-03T12:09:50.674Z</lastmod>
     <data>
@@ -165,9 +143,9 @@
         <title>基于HexoNexT的SEO优化（3）</title>
         <pubTime>2017-01-18T15:09:20.000Z</pubTime>
         
-        <tag>SEO</tag>
-         
         <tag>Hexo</tag>
+         
+        <tag>SEO</tag>
          
         <tag>NexT</tag>
          
