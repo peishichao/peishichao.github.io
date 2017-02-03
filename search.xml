@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title><![CDATA[你还没为自己喜欢的生活行动吗？]]></title>
+      <url>http://www.steven7.top/2017/02/03/2017-11.html</url>
+      <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>2017年已经过去：</p>
+<p><script type="text/javascript"><br>var time_now_server,time_now_client,time_end,time_server_client,timerID;</p>
+<p>time_end=new Date(“2017/1/1 0:0:0”);//开始的时间<br>time_end=time_end.getTime();</p>
+<p>time_now_server=new Date();<br>time_now_server=time_now_server.getTime();</p>
+<p>time_now_client=new Date();<br>time_now_client=time_now_client.getTime();</p>
+<p>time_server_client=time_now_server-time_now_client;</p>
+<p>setTimeout(“show_time()”,1000);</p>
+<p>function show_time()<br>{<br> var timer = document.getElementById(“timer”);<br> if(!timer){<br> return ;<br> }<br> timer.innerHTML =time_server_client;</p>
+<p> var time_now,time_distance,str_time;<br> var int_day,int_hour,int_minute,int_second;<br> var time_now=new Date();<br> time_now=time_now.getTime()+time_server_client;<br> time_distance=time_now - time_end;<br> if(time_distance&gt;0)<br> {<br>  int_day=Math.floor(time_distance/86400000)<br>  time_distance-=int_day<em>86400000;<br>  int_hour=Math.floor(time_distance/3600000)<br>  time_distance-=int_hour</em>3600000;<br>  int_minute=Math.floor(time_distance/60000)<br>  time_distance-=int_minute*60000;<br>  int_second=Math.floor(time_distance/1000)</p>
+<p>  if(int_hour<10)
+   int_hour="0"+int_hour;
+  if(int_minute<10)
+   int_minute="0"+int_minute;
+  if(int_second<10)
+   int_second="0"+int_second;
+  str_time=int_day+"天"+int_hour+"小时"+int_minute+"分钟"+int_second+"秒";
+  timer.innerHTML=str_time;
+  setTimeout("show_time()",1000);
+ }
+ else
+ {
+  timer.innerHTML =timer.innerHTML;
+  clearTimeout(timerID)
+ }
+}
+</script><br></p>
+<p><body></body></p>
+<p><div id="timer"></div><br><br></p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="http://i1.piimg.com/567571/473944d51f13444e.png" alt=""></p>
+<p><a href="http://www.steven7.top/">Steven`s Notes</a> by <a href="http://www.steven7.top/about.html">Steven</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.  </p>
+<p>由<a href="http://www.steven7.top/about.html">裴士超</a>创作并维护的<a href="http://www.steven7.top">斯蒂芬</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://kuangqi.me" target="_blank" rel="external">Steven`s Notes</a>博客（ <a href="http://www.steven7.top">http://www.steven7.top</a> ），版权所有，侵权必究。</p>
+<hr>
+<p>本文永久链接：<a href="http://www.steven7.top/2017/02/03/2017-11.html">http://www.steven7.top/2017/02/03/2017-11.html</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[“解忧杂货店”读书笔记]]></title>
       <url>http://www.steven7.top/2017/02/03/2017-10.html</url>
       <content type="html"><![CDATA[<p><img src="http://p1.bqimg.com/1949/a288ae59ad0308c9.jpg" alt="Markdown"></p>
