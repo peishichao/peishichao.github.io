@@ -4,28 +4,8 @@
 
     
   <url>
-    <loc>http://www.steven7.top/2017/02/11/2017-19.html</loc>
-    <lastmod>2017-02-11T13:41:07.089Z</lastmod>
-    <data>
-        <display>
-        <title>测试</title>
-        <pubTime>2017-02-11T13:31:32.000Z</pubTime>
-        
-        <tag>测试</tag>
-         
-         
-           
-             
-              <breadCrumb title="测试" url="http://www.steven7.top/categories/%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.steven7.top/2017/02/11/2017-18.html</loc>
-    <lastmod>2017-02-11T13:11:33.698Z</lastmod>
+    <lastmod>2017-02-11T14:38:44.776Z</lastmod>
     <data>
         <display>
         <title>group-picture</title>
@@ -34,6 +14,23 @@
         <tag>hexo</tag>
          
         <tag>group-picture</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.steven7.top/2017/02/11/2017-19.html</loc>
+    <lastmod>2017-02-11T14:38:00.500Z</lastmod>
+    <data>
+        <display>
+        <title>多彩标签以及彩色引用框</title>
+        <pubTime>2017-02-11T13:31:32.000Z</pubTime>
+        
+        <tag>多彩标签以及彩色引用框</tag>
          
          
            
@@ -124,11 +121,11 @@
         <title>软创-我又想起了你</title>
         <pubTime>2017-02-05T14:22:00.000Z</pubTime>
         
+        <tag>创业</tag>
+         
         <tag>软创</tag>
          
         <tag>回忆录</tag>
-         
-        <tag>创业</tag>
          
          
            
@@ -150,9 +147,9 @@
         
         <tag>读书笔记</tag>
          
-        <tag>创业</tag>
-         
         <tag>从0到1</tag>
+         
+        <tag>创业</tag>
          
         <tag>彼得.蒂尔</tag>
          
@@ -242,9 +239,9 @@
         <title>博文密码访问技巧</title>
         <pubTime>2017-02-02T07:58:20.000Z</pubTime>
         
-        <tag>Hexo</tag>
-         
         <tag>密码</tag>
+         
+        <tag>Hexo</tag>
          
         <tag>博文访问</tag>
          
