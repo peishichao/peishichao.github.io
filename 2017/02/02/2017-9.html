@@ -82,7 +82,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="密码,Hexo,博文访问,markdown,JavaScript," />
+  <meta name="keywords" content="Hexo,密码,博文访问,markdown,JavaScript," />
 
 
 
@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://p1.bqimg.com/1949/17c6484c758a3f9f.jpg">
 <meta property="og:image" content="http://p1.bpimg.com/1949/4dc5a9b87d7bf422.gif">
 <meta property="og:image" content="http://i1.piimg.com/567571/473944d51f13444e.png">
-<meta property="og:updated_time" content="2017-02-02T08:16:08.698Z">
+<meta property="og:updated_time" content="2017-02-11T14:47:54.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博文密码访问技巧">
 <meta name="twitter:description" content="这个博文的密码真的是：输入错误。">
@@ -387,7 +387,7 @@
 <p>主要是近期又想起了往期那些发情的岁月，再说冬天都快要过去了，春天就要到来了，所以博文里面有些发浪发骚的东西不适宜大家观看所以我就锁起来了。具体锁的方法其实很简单。</p>
 <p>这里用到了windows对象的prompt()方法。prompt()方法的作用即是显示一个可提示用户输入的对话框（即“请输入密码”），而其本身的返回值就是你输入的那个字符串。因此只需要将其与你默认的密码比较一下就好，正确就访问不正确就滚蛋就好咯。<br>然后把代码输入到文章内部即可。</p>
 <p>大腿们一定会说这样锁起来很不安全啊，但是我感觉如果有人愿意费周折把我的博文download下来只为一睹这个与他无关的东西。我也无所谓咯。╮(╯_╰)╭<img src="http://p1.bpimg.com/1949/4dc5a9b87d7bf422.gif" alt="Markdown"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    if(&quot;输入错误&quot;==prompt(&quot;请输入密码&quot;))</div><div class="line">    &#123;</div><div class="line">        alert(&quot;输入正确&quot;);</div><div class="line">    &#125;</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        alert(&quot;输入错误&quot;);</div><div class="line">        location=&quot;http://www.steven7.top/&quot;; </div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">if</span>(<span class="string">"输入错误"</span>==prompt(<span class="string">"请输入密码"</span>))</div><div class="line">    &#123;</div><div class="line">        alert(<span class="string">"输入正确"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        alert(<span class="string">"输入错误"</span>);</div><div class="line">        location=<span class="string">"http://www.steven7.top/"</span>; </div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
 <script>
     if("输入错误"==prompt("请输入密码"))
     {
@@ -448,9 +448,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/密码/" rel="tag">#密码</a>
-          
             <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+            <a href="/tags/密码/" rel="tag">#密码</a>
           
             <a href="/tags/博文访问/" rel="tag">#博文访问</a>
           
